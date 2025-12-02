@@ -997,6 +997,57 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(2, 6, 23, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(14, 165, 233, 0.2);
+            color: var(--primary);
+        }
+
+        .mobile-menu .btn-download {
+            background: var(--gradient-primary);
+            padding: 1rem 2rem;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Responsive */
@@ -1015,8 +1066,8 @@
             }
 
             .phone-frame {
-                width: 240px;
-                height: 500px;
+                width: 260px;
+                height: 540px;
             }
 
             .comparison-grid {
@@ -1067,6 +1118,15 @@
         </div>
         <button class="mobile-menu-btn">☰</button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">✕</button>
+        <a href="#features">Funciones</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#donar">🍺 Apoyar</a>
+        <a href="#notifyme" class="btn-download">🔔 Avísame</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1353,6 +1413,29 @@
     </footer>
 
     <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1386,56 +1469,67 @@
         const notifyForm = document.querySelector('.notify-form');
         const earlyCount = document.querySelector('.early-count strong');
 
-        function getSubscribers() {
-            const data = localStorage.getItem('ruteando_subscribers');
-            return data ? JSON.parse(data) : [];
+        async function getSubscriberCount() {
+            try {
+                const response = await fetch('subscribe.php');
+                const data = await response.json();
+                return data.count || 0;
+            } catch (error) {
+                console.error('Error obteniendo conteo:', error);
+                return 0;
+            }
         }
 
-        function saveSubscriber(email) {
-            const subscribers = getSubscribers();
-            subscribers.push({
-                email: email.toLowerCase().trim(),
-                fecha: new Date().toISOString()
+        async function saveSubscriber(email) {
+            const response = await fetch('subscribe.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
             });
-            localStorage.setItem('ruteando_subscribers', JSON.stringify(subscribers));
-            return subscribers.length;
+            return await response.json();
         }
 
-        function isAlreadySubscribed(email) {
-            const subscribers = getSubscribers();
-            return subscribers.some(sub => sub.email === email.toLowerCase().trim());
-        }
-
-        function updateCount() {
-            const count = getSubscribers().length;
+        async function updateCount() {
+            const count = await getSubscriberCount();
             earlyCount.textContent = count;
         }
 
         updateCount();
 
-        notifyForm.addEventListener('submit', function(e) {
+        notifyForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const emailInput = this.querySelector('.notify-input');
             const email = emailInput.value;
             const submitBtn = this.querySelector('button');
-            
-            if (isAlreadySubscribed(email)) {
-                showMessage('😎 ¡Ya me habías dejado tu correo! Tranquilo, te aviso en cuanto esté lista.', 'info');
-                emailInput.value = '';
-                return;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '⏳ Guardando...';
+
+            try {
+                const result = await saveSubscriber(email);
+
+                if (result.exists) {
+                    showMessage('😎 ¡Ya me habías dejado tu correo! Tranquilo, te aviso en cuanto esté lista.', 'info');
+                } else if (result.success) {
+                    earlyCount.textContent = result.count;
+                    showMessage('🎉 ¡Listo! Te aviso cuando esté disponible. ¡Gracias por el apoyo!', 'success');
+                    submitBtn.innerHTML = '✅ ¡Registrado!';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '🔔 Avísame';
+                    }, 2000);
+                } else {
+                    showMessage('❌ Hubo un error, intenta de nuevo.', 'error');
+                }
+            } catch (error) {
+                showMessage('❌ Error de conexión, intenta de nuevo.', 'error');
             }
 
-            const totalCount = saveSubscriber(email);
-            updateCount();
-
-            showMessage('🎉 ¡Listo! Te aviso cuando esté disponible. ¡Gracias por el apoyo!', 'success');
             emailInput.value = '';
-
-            submitBtn.innerHTML = '✅ ¡Registrado!';
-            setTimeout(() => {
+            submitBtn.disabled = false;
+            if (submitBtn.innerHTML === '⏳ Guardando...') {
                 submitBtn.innerHTML = '🔔 Avísame';
-            }, 2000);
+            }
         });
 
         function showMessage(text, type) {
