@@ -1289,7 +1289,7 @@
 
         /* ============ SECCIÓN: COMUNIDAD ACTIVA (MAPA) ============ */
         .active-community {
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 2rem;
             background: linear-gradient(180deg, rgba(14, 165, 233, 0.03), transparent);
         }
 
@@ -2144,6 +2144,242 @@
             cursor: pointer;
         }
 
+        /* ========================================
+           OPCIÓN 5: ESTILO NOTEBOOK / CÁLCULO A MANO
+           ======================================== */
+        .geo-notebook {
+            padding: 6rem 2rem;
+            background:
+                    linear-gradient(180deg, rgba(252, 211, 77, 0.02), var(--darker));
+            overflow: hidden;
+        }
+
+        .geo-notebook .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .geo-notebook .section-tag {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .geo-notebook .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .geo-notebook .section-title span {
+            color: var(--accent);
+        }
+
+        .geo-notebook .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .notebook-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .notebook-page {
+            background: linear-gradient(to bottom, #fefef6 0%, #f5f5dc 100%);
+            border-radius: 4px;
+            padding: 3rem;
+            position: relative;
+            box-shadow:
+                    0 20px 60px rgba(0,0,0,0.3),
+                    0 0 0 1px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            min-height: 600px;
+        }
+
+        .notebook-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 60px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        .notebook-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                    transparent,
+                    transparent 31px,
+                    rgba(14, 165, 233, 0.15) 31px,
+                    rgba(14, 165, 233, 0.15) 32px
+            );
+            pointer-events: none;
+        }
+
+        .notebook-content {
+            position: relative;
+            z-index: 1;
+            padding-left: 40px;
+            font-family: 'Caveat', 'Comic Sans MS', cursive;
+            color: #1a1a2e;
+            font-size: 1.3rem;
+            line-height: 32px;
+        }
+
+        .notebook-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 32px;
+            text-decoration: underline;
+            text-decoration-color: var(--primary);
+        }
+
+        .notebook-line {
+            margin-bottom: 0;
+            min-height: 32px;
+            opacity: 0;
+            animation: writeLine 0.8s ease forwards;
+        }
+
+        .notebook-line:nth-child(1) { animation-delay: 0.2s; }
+        .notebook-line:nth-child(2) { animation-delay: 0.5s; }
+        .notebook-line:nth-child(3) { animation-delay: 0.8s; }
+        .notebook-line:nth-child(4) { animation-delay: 1.1s; }
+        .notebook-line:nth-child(5) { animation-delay: 1.4s; }
+        .notebook-line:nth-child(6) { animation-delay: 1.7s; }
+        .notebook-line:nth-child(7) { animation-delay: 2s; }
+        .notebook-line:nth-child(8) { animation-delay: 2.3s; }
+        .notebook-line:nth-child(9) { animation-delay: 2.6s; }
+        .notebook-line:nth-child(10) { animation-delay: 2.9s; }
+        .notebook-line:nth-child(11) { animation-delay: 3.2s; }
+        .notebook-line:nth-child(12) { animation-delay: 3.5s; }
+        .notebook-line:nth-child(13) { animation-delay: 3.8s; }
+        .notebook-line:nth-child(14) { animation-delay: 4.1s; }
+
+        @keyframes writeLine {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .notebook-highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(252, 211, 77, 0.4) 60%);
+            padding: 0 4px;
+        }
+
+        .notebook-circle {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-dark);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        .notebook-arrow {
+            color: var(--orange);
+            font-size: 1.5rem;
+            margin: 0 8px;
+        }
+
+        .notebook-result {
+            background: rgba(34, 197, 94, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 16px;
+            border: 2px solid var(--secondary);
+        }
+
+        .notebook-doodle {
+            position: absolute;
+            font-size: 2rem;
+        }
+
+        .notebook-doodle.bus {
+            top: 20px;
+            right: 30px;
+            animation: doodleWiggle 2s ease-in-out infinite;
+        }
+
+        .notebook-doodle.pin {
+            bottom: 80px;
+            right: 50px;
+            animation: doodleWiggle 2s ease-in-out infinite 0.5s;
+        }
+
+        .notebook-doodle.check {
+            bottom: 30px;
+            right: 30px;
+            color: var(--secondary);
+            animation: doodleWiggle 2s ease-in-out infinite 1s;
+        }
+
+        @keyframes doodleWiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .notebook-tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            width: 120px;
+            height: 30px;
+            background: rgba(252, 211, 77, 0.6);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Import Caveat font for handwriting */
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            .map-visualization {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+
+            .blueprint-elements {
+                flex-direction: column;
+            }
+
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .notebook-page {
+                padding: 2rem 1.5rem;
+                transform: rotate(0);
+            }
+
+            .notebook-content {
+                padding-left: 20px;
+                font-size: 1.1rem;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .hero-content {
@@ -2897,6 +3133,85 @@
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
                     <span class="early-count">🔥 Ya hay <strong id="subscriber-count">0</strong> personas esperando</span>
                 </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="geo-notebook">
+        <div class="section-header">
+            <span class="section-tag">PRIMERO A MANO</span>
+            <h2 class="section-title">El trabajo que <span>nadie hizo</span></h2>
+            <p class="section-subtitle">Alguien tenía que sentarse a trazar cada ruta, calcular cada distancia, y armar cada conexión. Ese alguien un día se perdió en las rutas 🤣.</p>
+        </div>
+
+        <div class="notebook-container">
+            <div class="notebook-page">
+                <div class="notebook-tape"></div>
+                <div class="notebook-lines"></div>
+
+                <div class="notebook-content">
+                    <div class="notebook-heading notebook-line">¿Cómo calculo una ruta? 😖😵‍💫</div>
+
+                    <div class="notebook-line">
+                        <span class="notebook-circle">1</span>
+                        ¿Dónde estoy?
+                        <span class="notebook-highlight">21.5041°, -104.8946°</span>
+                    </div>
+
+                    <div class="notebook-line">
+                        <span class="notebook-circle">2</span>
+                        ¿A dónde voy? → Ciudad Universitaria
+                    </div>
+
+                    <div class="notebook-line">
+                        <span class="notebook-circle">3</span>
+                        Buscar rutas que pasen cerca...
+                    </div>
+
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                        → Ruta 7: ❌ no pasa por destino
+                    </div>
+
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                        → Ruta 12: ✓ pasa a 127m del origen
+                    </div>
+
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                        → Ruta 12: ✓ pasa a 89m del destino
+                    </div>
+
+                    <div class="notebook-line">
+                        <span class="notebook-circle">4</span>
+                        Calcular distancia total:
+                    </div>
+
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem;">
+                        d = √[(Δlat)² + (Δlng)²] × 111.32
+                    </div>
+
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem;">
+                        d = <span class="notebook-highlight">3.2 km</span> 👍
+                    </div>
+
+                    <div class="notebook-line">
+                        <span class="notebook-circle">5</span>
+                        Tiempo: 3.2km ÷ 18km/h =
+                        <span class="notebook-highlight">~18 minutos</span>
+                    </div>
+
+                    <div class="notebook-line">&nbsp;</div>
+
+                    <div class="notebook-line">
+                        <div class="notebook-result">
+                            ✅ Resultado: Ruta 12, sin transbordos! 🤯😎
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notebook-doodle bus">🚌</div>
+                <div class="notebook-doodle pin">📍</div>
+                <div class="notebook-doodle check">✓</div>
             </div>
         </div>
     </section>
