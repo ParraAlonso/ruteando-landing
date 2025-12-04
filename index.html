@@ -288,14 +288,21 @@
             display: flex;
             gap: 0.8rem;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            max-width: 450px;
+            max-width: 500px;
             margin: 0 auto;
+        }
+
+        .platform-selector {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
         }
 
         .notify-input {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
             padding: 1rem 1.5rem;
             border-radius: 50px;
             border: none;
@@ -312,6 +319,39 @@
 
         .notify-input:focus {
             box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .platform-option {
+            display: none;
+        }
+
+        .platform-option + label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .platform-option + label:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .platform-option:checked + label {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-dark);
+            border-color: white;
+        }
+
+        .platform-option + label .platform-emoji {
+            font-size: 1.1rem;
         }
 
         .early-count {
@@ -2142,6 +2182,102 @@
             .step-number::after {
                 display: none;
             }
+
+            /* Disponibilidad responsive */
+            .platforms-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .platform-card {
+                width: 100%;
+                max-width: 300px;
+                padding: 1.5rem 2rem;
+            }
+
+            .timeline-item {
+                gap: 1rem;
+            }
+
+            .timeline-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .timeline-item::before {
+                left: 17px;
+                top: 50px;
+            }
+
+            .timeline-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.85rem;
+            }
+
+            .availability-note {
+                padding: 0 1rem;
+                font-size: 0.9rem;
+            }
+
+            /* Live Tracking responsive */
+            .live-tracking-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .live-tracking-text {
+                order: 1;
+                text-align: center;
+            }
+
+            .live-tracking-visual {
+                order: 2;
+            }
+
+            .tracking-mockup {
+                padding: 1.5rem;
+            }
+
+            .tracking-feature {
+                text-align: left;
+            }
+
+            .tracking-stats {
+                gap: 0.5rem;
+            }
+
+            .tracking-stat .value {
+                font-size: 1.1rem;
+            }
+
+            .tracking-stat .label {
+                font-size: 0.7rem;
+            }
+
+            /* Notify form responsive */
+            .notify-form {
+                flex-direction: column;
+                max-width: 300px;
+            }
+
+            .platform-selector {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .notify-input {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .notify-form .btn-white {
+                width: 100%;
+            }
         }
 
 
@@ -2300,7 +2436,7 @@
         <div class="section-header">
             <span class="section-tag">FUNCIONES</span>
             <h2 class="section-title">Lo único que necesitas para moverte en el transporte público.</h2>
-            <p class="section-subtitle">Sin complicaciones, sin adivinar, sin preguntar.</p>
+            <p class="section-subtitle">Sin complicaciones, sin adivinar, sin preguntar, sin perderte 3 horas 🤣.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -2341,7 +2477,7 @@
         <div class="section-header">
             <span class="section-tag">ASÍ DE FÁCIL</span>
             <h2 class="section-title">¿Cómo funciona?</h2>
-            <p class="section-subtitle">3 pasos y listo. En serio.</p>
+            <p class="section-subtitle">3 pasos y listo. Sin cotorreos.</p>
         </div>
         <div class="steps-container">
             <div class="step">
@@ -2418,7 +2554,7 @@
         <div class="section-header">
             <span class="section-tag">DISPONIBILIDAD</span>
             <h2 class="section-title">Android e iOS. Para todos.</h2>
-            <p class="section-subtitle">Porque no importa qué teléfono tengas, aquí todos ruteamos 🤘.</p>
+            <p class="section-subtitle">Porque no importa qué teléfono tengas, aquí todos rutearemos 🤘.</p>
         </div>
 
         <div class="platforms-container">
@@ -2467,7 +2603,7 @@
         </div>
 
         <p class="availability-note">
-            <strong>Una vez que pase la validación y podamos rutear, te avisaré de volada.</strong>
+            <strong>Una vez que pase la validación y puedas descargarla, te avisaré de volada.</strong>
         </p>
     </section>
 
@@ -2479,8 +2615,8 @@
                 <div class="future-badge">🔮 LO QUE SE ESTÁ HORNEANDO</div>
                 <h2>Camiones en vivo.<br><span class="orange">Gracias a ti.</span></h2>
                 <p>
-                    ¿Y si pudieras ver dónde va el camión en tiempo real? Sin depender de que las empresas pongan GPS.
-                    <strong>La comunidad es el GPS.</strong>
+                    ¿Y si pudieras ver dónde va el camión en tiempo real? Sin depender de que los camiones tengan GPS.
+                    <strong><br>Nosotros podemos ser el GPS 🤝</strong>
                 </p>
 
                 <div class="tracking-features">
@@ -2644,8 +2780,8 @@
         </div>
 
         <p class="community-quote">
-            No necesitamos GPS en los camiones.<br>
-            <strong>Nosotros somos el GPS</strong>
+            ¿GPS en los camiones?<br>
+            <strong>Nosotros podemos ser el GPS</strong>
         </p>
     </section>
 
@@ -2695,10 +2831,10 @@
     <section class="community" id="comunidad">
         <div class="community-box">
             <div class="community-emoji">🤝</div>
-            <h2 class="community-title">Esto no es solo será una app.<br>Es un esfuerzo de todos.</h2>
+            <h2 class="community-title">Esto no solo será una app.<br>Será un esfuerzo de todos.</h2>
             <p class="community-text">
-                Ruteando® es <strong>100% gratis</strong>. No hay empresa detrás, no hay inversionistas, no hay publicidad molesta.
-                Solo un wey de Tepic <small>(sí, nomás yo)</small>, que quiere que moverse en la ciudad sea menos complicado.
+                Ruteando® será <strong>100% gratis</strong>. No hay empresa detrás, no hay inversionistas, no hay publicidad molesta.
+                Solo un wey que quiere que moverse en la ciudad sea menos complicado. <br><small>(Sí, nomás yo, alguien que una vez se perdió macizo por no saber qué ruta agarrar 🤣)</small>
                 <br><br>
                 Eso sí, una app sin usuarios no sirve de nada. <strong>El éxito de Ruteando® depende de que la gente la adopte.</strong>
                 Nada me cuesta venderla al mejor postor. Pero quiero que sea de todos, para todos.
@@ -2736,6 +2872,16 @@
                 <h2>Sé de los primeros en tenerla</h2>
                 <p>Deja tu correo y te enviaré una notificación cuando esté disponible. Cero spam, neta, es sólo para que sepas que ya puedes rutear 😉.</p>
                 <form class="notify-form" id="notify-form">
+                    <div class="platform-selector">
+                        <input type="radio" name="platform" value="android" id="platform-android" class="platform-option" checked>
+                        <label for="platform-android">
+                            <span class="platform-emoji">🤖</span> Android
+                        </label>
+                        <input type="radio" name="platform" value="ios" id="platform-ios" class="platform-option">
+                        <label for="platform-ios">
+                            <span class="platform-emoji">🍎</span> iOS
+                        </label>
+                    </div>
                     <input type="email" id="email-input" placeholder="tu@correo.com" class="notify-input" required>
                     <button type="submit" class="btn-white">
                         🔔 Avísame

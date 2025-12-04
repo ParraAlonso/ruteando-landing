@@ -30,6 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     $email = isset($input['email']) ? strtolower(trim($input['email'])) : '';
+    $platform = isset($input['platform']) ? trim($input['platform']) : 'android';
+
+    // Validar plataforma
+    if (!in_array($platform, ['android', 'ios'])) {
+        $platform = 'android';
+    }
 
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
@@ -58,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Guardar nuevo suscriptor
     $subscriber = json_encode([
         'email' => $email,
+        'platform' => $platform,
         'fecha' => date('Y-m-d H:i:s'),
         'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
     ]);
