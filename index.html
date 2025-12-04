@@ -2523,6 +2523,660 @@
         }
 
 
+        /* ============ SECCIÓN: ALERTAS DEL TREN ============ */
+        .train-alerts {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--darker), rgba(220, 38, 38, 0.03));
+        }
+
+        .train-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            align-items: center;
+        }
+
+        .train-intro-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .train-intro-text p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .train-intro-text strong {
+            color: var(--light);
+        }
+
+        .train-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .train-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+        }
+
+        .train-feature-icon {
+            font-size: 1.3rem;
+        }
+
+        .train-intro-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .train-visual-animation {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .train-track {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(90deg, #4a4a5a 0, #4a4a5a 20px, #2a2a3a 20px, #2a2a3a 40px);
+            transform: translateY(-50%);
+        }
+
+        .train-emoji {
+            position: absolute;
+            top: 50%;
+            left: -60px;
+            font-size: 2.5rem;
+            transform: translateY(-50%);
+            animation: trainMove 4s linear infinite;
+        }
+
+        .train-cars {
+            position: absolute;
+            top: 50%;
+            left: -180px;
+            font-size: 2rem;
+            transform: translateY(-50%);
+            animation: trainMove 4s linear infinite;
+            letter-spacing: -5px;
+        }
+
+        @keyframes trainMove {
+            0% { left: -180px; }
+            100% { left: 350px; }
+        }
+
+        .train-crossing {
+            position: absolute;
+            top: 30%;
+            right: 30%;
+        }
+
+        .crossing-barrier {
+            width: 60px;
+            height: 6px;
+            background: repeating-linear-gradient(90deg, #dc2626, #dc2626 8px, white 8px, white 16px);
+            border-radius: 3px;
+            transform-origin: left center;
+            animation: barrierDown 4s ease-in-out infinite;
+        }
+
+        @keyframes barrierDown {
+            0%, 20% { transform: rotate(0deg); }
+            30%, 80% { transform: rotate(80deg); }
+            90%, 100% { transform: rotate(0deg); }
+        }
+
+        .crossing-light {
+            position: absolute;
+            top: -20px;
+            left: 25px;
+            width: 12px;
+            height: 12px;
+            background: #dc2626;
+            border-radius: 50%;
+        }
+
+        .crossing-light.blink {
+            animation: lightBlink 0.5s ease-in-out infinite;
+        }
+
+        @keyframes lightBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .cars-waiting {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .cars-waiting span { font-size: 1.2rem; }
+
+        /* Reportar tren */
+        .train-report-section {
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .train-report-section > h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .train-report-section > p { color: var(--gray); margin-bottom: 2.5rem; }
+
+        .train-report-demo {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .train-phone-mockup {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border-radius: 30px;
+            padding: 1rem;
+            border: 3px solid #333;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .train-phone-screen {
+            background: var(--darker);
+            border-radius: 20px;
+            padding: 1rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .train-phone-header {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+
+        .train-quick-action {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .train-big-button {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .train-big-button:hover { transform: scale(1.05); }
+
+        .train-big-button.pulse {
+            animation: trainPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes trainPulse {
+            0%, 100% { box-shadow: 0 10px 40px rgba(220, 38, 38, 0.4); }
+            50% { box-shadow: 0 10px 60px rgba(220, 38, 38, 0.6), 0 0 0 15px rgba(220, 38, 38, 0.1); }
+        }
+
+        .train-button-icon { font-size: 2.5rem; }
+        .train-button-text { font-size: 0.85rem; font-weight: 700; text-align: center; }
+        .train-phone-footer { text-align: center; font-size: 0.7rem; color: var(--gray); margin-top: 1rem; }
+
+        .train-report-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .train-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .train-step-num {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .train-step-content strong { display: block; margin-bottom: 0.2rem; }
+        .train-step-content span { font-size: 0.85rem; color: var(--gray); }
+
+        /* Cruces del tren */
+        .train-crossings-section {
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .train-crossings-section > h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .train-crossings-section > p { color: var(--gray); margin-bottom: 2.5rem; }
+
+        .train-crossings-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .train-map-mockup {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border-radius: 20px;
+            padding: 1.5rem;
+            position: relative;
+            min-height: 350px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .train-map-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 25px 25px;
+            border-radius: 20px;
+        }
+
+        .train-line {
+            position: absolute;
+            top: 15%; left: 20%;
+            width: 70%; height: 75%;
+            border: 3px dashed rgba(220, 38, 38, 0.3);
+            border-radius: 50% 0 50% 0;
+            transform: rotate(-10deg);
+        }
+
+        .train-crossing-point {
+            position: absolute;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .crossing-marker {
+            font-size: 1.5rem;
+            filter: grayscale(0.5);
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        .train-crossing-point.active .crossing-marker {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .crossing-label {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            white-space: nowrap;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+
+        .train-settings-mockup {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .train-settings-header {
+            padding: 1rem 1.5rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            font-weight: 600;
+        }
+
+        .train-toggle-list { padding: 0.5rem; }
+
+        .train-toggle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .train-toggle-item:last-child { border-bottom: none; }
+        .train-toggle-info { text-align: left; }
+        .train-toggle-name { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; }
+        .train-toggle-distance { font-size: 0.75rem; color: var(--gray); }
+
+        .train-toggle {
+            width: 44px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .train-toggle.active { background: #22c55e; }
+
+        .train-toggle-knob {
+            position: absolute;
+            top: 2px; left: 2px;
+            width: 20px; height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: left 0.3s;
+        }
+
+        .train-toggle.active .train-toggle-knob { left: 22px; }
+
+        .train-toggle-item.slow-crossing {
+            background: rgba(220, 38, 38, 0.05);
+            border-left: 3px solid rgba(220, 38, 38, 0.5);
+        }
+
+        .train-toggle-item.slow-crossing .train-toggle-distance { color: #f87171; }
+        .train-crossing-point.slow .crossing-label { color: #f87171; }
+        .train-crossing-point.slow .crossing-label small { display: block; font-size: 0.6rem; opacity: 0.8; }
+
+        .train-settings-footer {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.02);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Notificación del tren */
+        .train-notification-section {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .train-notification-section > h3 { font-size: 1.5rem; margin-bottom: 2rem; }
+
+        .train-notification-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .notification-mockup {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+            border-radius: 30px;
+            padding: 1rem;
+            border: 3px solid #333;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .notification-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .notification-card.train-notif {
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 16px;
+            padding: 1rem;
+            margin: 0.5rem;
+        }
+
+        .notification-app {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .notification-app-icon { font-size: 1.2rem; }
+        .notification-app-name { font-size: 0.8rem; font-weight: 600; }
+        .notification-app-time { font-size: 0.7rem; color: var(--gray); margin-left: auto; }
+        .notification-content strong { display: block; margin-bottom: 0.3rem; }
+        .notification-content p { font-size: 0.85rem; color: var(--gray); margin: 0; }
+
+        .train-notification-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .train-notif-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+
+        .train-notif-feature > span { font-size: 1.5rem; }
+        .train-notif-feature strong { display: block; margin-bottom: 0.2rem; }
+        .train-notif-feature > div span { font-size: 0.85rem; color: var(--gray); }
+
+        /* CTA del tren */
+        .train-cta { max-width: 700px; margin: 0 auto; }
+
+        .train-cta-card {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(249, 115, 22, 0.1));
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .train-cta-emoji { font-size: 3rem; margin-bottom: 1rem; }
+        .train-cta-card h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .train-cta-card > p { color: var(--gray); margin-bottom: 2rem; }
+
+        .train-cta-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .train-cta-stat { text-align: center; }
+
+        .train-cta-stat .stat-num {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .train-cta-stat .stat-label { font-size: 0.8rem; color: var(--gray); }
+
+        /* Responsive Tren */
+        @media (max-width: 768px) {
+            .train-intro { grid-template-columns: 1fr; gap: 2rem; }
+            .train-intro-visual { order: -1; }
+            .train-features { grid-template-columns: 1fr; }
+            .train-report-demo { grid-template-columns: 1fr; }
+            .train-crossings-demo { grid-template-columns: 1fr; }
+            .train-notification-demo { grid-template-columns: 1fr; }
+        }
+
+        /* ============ GAMIFICACIÓN EXPANDIDA ============ */
+        .badge-category {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .badge-category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .badge-category-icon {
+            font-size: 2.5rem;
+        }
+
+        .badge-category-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge-category-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Colores por categoría */
+        .badge-category:nth-child(2) .badge-category-header { border-left-color: #22C55E; }
+        .badge-category:nth-child(3) .badge-category-header { border-left-color: #F97316; }
+        .badge-category:nth-child(4) .badge-category-header { border-left-color: #A855F7; }
+        .badge-category:nth-child(5) .badge-category-header { border-left-color: #EF4444; }
+
+        .badge-card.tracking { border-color: rgba(34, 197, 94, 0.3); }
+        .badge-card.tracking:hover { border-color: #22C55E; background: rgba(34, 197, 94, 0.1); }
+
+        .badge-card.pins { border-color: rgba(249, 115, 22, 0.3); }
+        .badge-card.pins:hover { border-color: #F97316; background: rgba(249, 115, 22, 0.1); }
+
+        .badge-card.social { border-color: rgba(168, 85, 247, 0.3); }
+        .badge-card.social:hover { border-color: #A855F7; background: rgba(168, 85, 247, 0.1); }
+
+        .badge-card.train { border-color: rgba(239, 68, 68, 0.3); }
+        .badge-card.train:hover { border-color: #EF4444; background: rgba(239, 68, 68, 0.1); }
+
+        .badge-card.special {
+            position: relative;
+        }
+
+        .badge-card.special::before {
+            content: '✨';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 0.8rem;
+        }
+
+        .badge-card.referral::after {
+            content: 'REFERIDO';
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 0.6rem;
+            background: rgba(168, 85, 247, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #A855F7;
+        }
+
+        /* Resumen de badges */
+        .badges-summary {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 197, 94, 0.1));
+            border-radius: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .badges-summary-card {
+            text-align: center;
+            padding: 1rem 2rem;
+        }
+
+        .badges-summary-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badges-summary-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .badge-category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .badges-summary {
+                gap: 1rem;
+            }
+            
+            .badges-summary-card {
+                padding: 0.5rem 1rem;
+            }
+            
+            .badges-summary-number {
+                font-size: 2rem;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -2540,8 +3194,8 @@
         <div class="logo">Ruteando<sup>®</sup> <span>TEPIC</span></div>
         <div class="nav-links">
             <a href="#features">Funciones</a>
-            <a href="#disponibilidad">Disponibilidad</a>
-            <a href="#tracking">Tracking</a>
+            <a href="#tren">🚂 Tren</a>
+            <a href="#logros">🏆 Logros</a>
             <a href="#comunidad">Comunidad</a>
             <a href="#donar">🍺 Apoyar</a>
             <a href="#notifyme" class="btn-download">🔔 Avísame</a>
@@ -2553,8 +3207,8 @@
     <div class="mobile-menu">
         <button class="mobile-menu-close">✕</button>
         <a href="#features">Funciones</a>
-        <a href="#disponibilidad">Disponibilidad</a>
-        <a href="#tracking">Tracking</a>
+        <a href="#tren">🚂 Alertas del Tren</a>
+        <a href="#logros">🏆 Logros</a>
         <a href="#comunidad">Comunidad</a>
         <a href="#donar">🍺 Apoyar</a>
         <a href="#notifyme" class="btn-download">🔔 Avísame</a>
@@ -2760,7 +3414,7 @@
                 </div>
                 <ul class="comparison-list">
                     <li>🗺️ "Aquí están las rutas, bro, hazte bolas"</li>
-                    <li>🤷 Te dicen muestran rutas (rayitas de colores) pero no cuál tomar</li>
+                    <li>🤷 Te muestran rutas (rayitas de colores) pero no cuál tomar</li>
                     <li>😵 Cero instrucciones de dónde bajar</li>
                     <li>🔄 Transbordos? Ni de pedo jaja</li>
                     <li>📍 Mapas bonitos pero <s>inútiles</s> no usables</li>
@@ -3028,46 +3682,544 @@
     </section>
 
 
-    <!-- Gamificación -->
-    <section class="gamification">
+    <!-- Gamificación COMPLETA -->
+    <section class="gamification" id="logros">
         <div class="section-header">
             <span class="section-tag">RECONOCIMIENTO</span>
-            <h2 class="section-title">Desbloquea logros por rutear 💎</h2>
-            <p class="section-subtitle">Entre más rutees, más reconocimiento. Presume cuánto has aportado 😎.</p>
+            <h2 class="section-title">Desbloquea logros y presume 💎</h2>
+            <p class="section-subtitle">4 categorías de logros. Entre más aportes, más reconocimiento. Tu perfil lo dice todo 😎.</p>
         </div>
-        <div class="gamification-grid">
-            <div class="badge-card">
-                <div class="emoji">🌱</div>
-                <h4>Novato(a)</h4>
-                <p>Primeros 10 km compartidos</p>
+
+        <!-- Categoría 1: Por Rutear (Tracking) -->
+        <div class="badge-category">
+            <div class="badge-category-header">
+                <span class="badge-category-icon">🚌</span>
+                <div class="badge-category-info">
+                    <h3>Por compartir tu trayecto</h3>
+                    <p>Cada vez que te subes al camión y compartes tu ubicación, ayudas a todos</p>
+                </div>
             </div>
-            <div class="badge-card">
-                <div class="emoji">⭐</div>
-                <h4>Frecuente</h4>
-                <p>200+ km compartidos</p>
+            <div class="gamification-grid">
+                <div class="badge-card tracking">
+                    <div class="emoji">🌱</div>
+                    <h4>Novato(a)</h4>
+                    <p>Primeros 10 km</p>
+                </div>
+                <div class="badge-card tracking">
+                    <div class="emoji">🚶</div>
+                    <h4>Caminante</h4>
+                    <p>50 km compartidos</p>
+                </div>
+                <div class="badge-card tracking">
+                    <div class="emoji">⭐</div>
+                    <h4>Frecuente</h4>
+                    <p>200 km compartidos</p>
+                </div>
+                <div class="badge-card tracking">
+                    <div class="emoji">🏃</div>
+                    <h4>Maratonista</h4>
+                    <p>500 km compartidos</p>
+                </div>
+                <div class="badge-card tracking">
+                    <div class="emoji">🚀</div>
+                    <h4>Viajero(a) Experto</h4>
+                    <p>1,000 km compartidos</p>
+                </div>
+                <div class="badge-card tracking">
+                    <div class="emoji">🌟</div>
+                    <h4>Leyenda</h4>
+                    <p>5,000 km compartidos</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">👑</div>
+                    <h4>Rey/Reyna de la Ruta</h4>
+                    <p>1,000 km en UNA sola ruta</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">🌅</div>
+                    <h4>Madrugador(a)</h4>
+                    <p>Rutear antes de las 7am</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">🦉</div>
+                    <h4>Noctámbulo(a)</h4>
+                    <p>Rutear después de las 10pm</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">🔥</div>
+                    <h4>Racha de 7</h4>
+                    <p>7 días seguidos ruteando</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">💪</div>
+                    <h4>Racha de 30</h4>
+                    <p>30 días seguidos ruteando</p>
+                </div>
+                <div class="badge-card tracking special">
+                    <div class="emoji">🎖️</div>
+                    <h4>Veterano(a)</h4>
+                    <p>1 año usando la app</p>
+                </div>
             </div>
-            <div class="badge-card">
-                <div class="emoji">👑</div>
-                <h4>Rey/Reyna de la Ruta</h4>
-                <p>1000+ km en una sola ruta</p>
+        </div>
+
+        <!-- Categoría 2: Por Pines -->
+        <div class="badge-category">
+            <div class="badge-category-header">
+                <span class="badge-category-icon">📍</span>
+                <div class="badge-category-info">
+                    <h3>Por crear pines en el mapa</h3>
+                    <p>Reporta paradas, negocios, peligros y ayuda a mapear Tepic</p>
+                </div>
             </div>
-            <div class="badge-card">
-                <div class="emoji">🌅</div>
-                <h4>Madrugador(a)</h4>
-                <p>Rutear antes de las 7am</p>
+            <div class="gamification-grid">
+                <div class="badge-card pins">
+                    <div class="emoji">📌</div>
+                    <h4>Primer Pin</h4>
+                    <p>Tu primer pin aprobado</p>
+                </div>
+                <div class="badge-card pins">
+                    <div class="emoji">🗺️</div>
+                    <h4>Cartógrafo(a)</h4>
+                    <p>10 pines aprobados</p>
+                </div>
+                <div class="badge-card pins">
+                    <div class="emoji">🧭</div>
+                    <h4>Explorador(a)</h4>
+                    <p>25 pines aprobados</p>
+                </div>
+                <div class="badge-card pins">
+                    <div class="emoji">🏛️</div>
+                    <h4>Arquitecto(a) Urbano</h4>
+                    <p>50 pines aprobados</p>
+                </div>
+                <div class="badge-card pins">
+                    <div class="emoji">🌎</div>
+                    <h4>Master del Mapa</h4>
+                    <p>100 pines aprobados</p>
+                </div>
+                <div class="badge-card pins special">
+                    <div class="emoji">⚠️</div>
+                    <h4>Guardián(a)</h4>
+                    <p>10 pines de peligro</p>
+                </div>
             </div>
-            <div class="badge-card">
-                <div class="emoji">🔥</div>
-                <h4>Racha de 7</h4>
-                <p>7 días seguidos compartiendo</p>
+        </div>
+
+        <!-- Categoría 3: Sociales -->
+        <div class="badge-category">
+            <div class="badge-category-header">
+                <span class="badge-category-icon">👥</span>
+                <div class="badge-category-info">
+                    <h3>Por ser sociable</h3>
+                    <p>Agrega amigos, da reconocimientos y haz crecer la comunidad</p>
+                </div>
             </div>
-            <div class="badge-card">
-                <div class="emoji">🌟</div>
-                <h4>Leyenda</h4>
-                <p>5000+ km totales</p>
+            <div class="gamification-grid">
+                <div class="badge-card social">
+                    <div class="emoji">👋</div>
+                    <h4>Primer Amigo</h4>
+                    <p>Agrega tu primer amigo</p>
+                </div>
+                <div class="badge-card social">
+                    <div class="emoji">🦋</div>
+                    <h4>Mariposa Social</h4>
+                    <p>10 amigos agregados</p>
+                </div>
+                <div class="badge-card social">
+                    <div class="emoji">🎉</div>
+                    <h4>Alma de la Fiesta</h4>
+                    <p>50 amigos agregados</p>
+                </div>
+                <div class="badge-card social">
+                    <div class="emoji">💫</div>
+                    <h4>Popular</h4>
+                    <p>50 reconocimientos recibidos</p>
+                </div>
+                <div class="badge-card social">
+                    <div class="emoji">🙌</div>
+                    <h4>Generoso(a)</h4>
+                    <p>100 reconocimientos dados</p>
+                </div>
+                <div class="badge-card social">
+                    <div class="emoji">💝</div>
+                    <h4>Corazón de Oro</h4>
+                    <p>500 reconocimientos dados</p>
+                </div>
+                <div class="badge-card social referral">
+                    <div class="emoji">🤝</div>
+                    <h4>Embajador(a)</h4>
+                    <p>Refiere 5 amigos</p>
+                </div>
+                <div class="badge-card social referral">
+                    <div class="emoji">📢</div>
+                    <h4>Influencer Local</h4>
+                    <p>Refiere 20 amigos</p>
+                </div>
+                <div class="badge-card social referral">
+                    <div class="emoji">👑</div>
+                    <h4>Padrino/Madrina</h4>
+                    <p>Refiere 50 amigos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría 4: Alertas del Tren -->
+        <div class="badge-category">
+            <div class="badge-category-header">
+                <span class="badge-category-icon">🚂</span>
+                <div class="badge-category-info">
+                    <h3>Por alertar del tren</h3>
+                    <p>Salva a la gente de quedarse atorada en las vías</p>
+                </div>
+            </div>
+            <div class="gamification-grid">
+                <div class="badge-card train">
+                    <div class="emoji">🔔</div>
+                    <h4>Primera Alerta</h4>
+                    <p>Tu primera alerta de tren</p>
+                </div>
+                <div class="badge-card train">
+                    <div class="emoji">👀</div>
+                    <h4>Vigía</h4>
+                    <p>5 alertas de tren</p>
+                </div>
+                <div class="badge-card train">
+                    <div class="emoji">🛤️</div>
+                    <h4>Guardián de las Vías</h4>
+                    <p>10 alertas de tren</p>
+                </div>
+                <div class="badge-card train">
+                    <div class="emoji">🦸</div>
+                    <h4>Héroe del Tráfico</h4>
+                    <p>25 alertas de tren</p>
+                </div>
+                <div class="badge-card train">
+                    <div class="emoji">🏆</div>
+                    <h4>Leyenda Ferroviaria</h4>
+                    <p>50 alertas de tren</p>
+                </div>
+                <div class="badge-card train special">
+                    <div class="emoji">⚡</div>
+                    <h4>Relámpago</h4>
+                    <p>Alertar en menos de 1 min</p>
+                </div>
+                <div class="badge-card train special">
+                    <div class="emoji">🎯</div>
+                    <h4>Francotirador</h4>
+                    <p>Alertar los 6 cruces</p>
+                </div>
+                <div class="badge-card train special">
+                    <div class="emoji">🌙</div>
+                    <h4>Búho Ferroviario</h4>
+                    <p>Alertar después de las 9pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumen de logros -->
+        <div class="badges-summary">
+            <div class="badges-summary-card">
+                <div class="badges-summary-number">38</div>
+                <div class="badges-summary-text">logros para desbloquear</div>
+            </div>
+            <div class="badges-summary-card">
+                <div class="badges-summary-number">4</div>
+                <div class="badges-summary-text">categorías</div>
+            </div>
+            <div class="badges-summary-card">
+                <div class="badges-summary-number">∞</div>
+                <div class="badges-summary-text">presumidas</div>
             </div>
         </div>
     </section>
+
+
+    <!-- ALERTAS DEL TREN - Nueva Sección -->
+    <section class="train-alerts" id="tren">
+        <div class="section-header">
+            <span class="section-tag">PARA TODOS 🚂</span>
+            <h2 class="section-title">Alertas del Tren</h2>
+            <p class="section-subtitle">No importa si andas en camión, carro o moto. Si el tren te afecta, esta onda es para ti.</p>
+        </div>
+
+        <!-- Intro del tren -->
+        <div class="train-intro">
+            <div class="train-intro-text">
+                <h3>El tren no avisa. Nosotros sí. 🚂</h3>
+                <p>
+                    Todos conocemos la historia: vas tarde al jale, llegas a un cruce de vías 
+                    y <strong>¡PUM! El tren.</strong> 15, 20, hasta 30 minutos atorado sin poder hacer nada.
+                </p>
+                <p>
+                    Con Ruteando®, cuando alguien ve que viene el tren, 
+                    <strong>un tap y todos los que tengan activada esa alerta lo saben al instante.</strong>
+                </p>
+                <div class="train-features">
+                    <div class="train-feature">
+                        <span class="train-feature-icon">📍</span>
+                        <span>6 cruces de vías mapeados</span>
+                    </div>
+                    <div class="train-feature">
+                        <span class="train-feature-icon">🔔</span>
+                        <span>Notificaciones instantáneas</span>
+                    </div>
+                    <div class="train-feature">
+                        <span class="train-feature-icon">⚡</span>
+                        <span>Un tap para alertar</span>
+                    </div>
+                    <div class="train-feature">
+                        <span class="train-feature-icon">🎯</span>
+                        <span>Elige qué cruces te importan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="train-intro-visual">
+                <div class="train-visual-animation">
+                    <div class="train-track"></div>
+                    <div class="train-emoji">🚂</div>
+                    <div class="train-cars">🚃🚃🚃</div>
+                    <div class="train-crossing">
+                        <div class="crossing-barrier"></div>
+                        <div class="crossing-light blink"></div>
+                    </div>
+                    <div class="cars-waiting">
+                        <span>🚗</span>
+                        <span>🚙</span>
+                        <span>🚕</span>
+                        <span>🛻</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cómo reportar -->
+        <div class="train-report-section">
+            <h3>Reportar es facilísimo ⚡</h3>
+            <p>Un botón. Un tap. Listo. La app detecta el cruce más cercano automáticamente.</p>
+            
+            <div class="train-report-demo">
+                <div class="train-phone-mockup">
+                    <div class="train-phone-screen">
+                        <div class="train-phone-header">
+                            <span>📍 Cerca de: Xalisco - El Koa</span>
+                        </div>
+                        <div class="train-quick-action">
+                            <div class="train-big-button pulse">
+                                <span class="train-button-icon">🚂</span>
+                                <span class="train-button-text">¡VIENE EL TREN!</span>
+                            </div>
+                        </div>
+                        <div class="train-phone-footer">
+                            <span>Detectamos el cruce más cercano automáticamente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="train-report-steps">
+                    <div class="train-step">
+                        <div class="train-step-num">1</div>
+                        <div class="train-step-content">
+                            <strong>Ves/escuchas el tren</strong>
+                            <span>En cualquier cruce de vías</span>
+                        </div>
+                    </div>
+                    <div class="train-step">
+                        <div class="train-step-num">2</div>
+                        <div class="train-step-content">
+                            <strong>Abres Ruteando®</strong>
+                            <span>El botón de tren está siempre visible</span>
+                        </div>
+                    </div>
+                    <div class="train-step">
+                        <div class="train-step-num">3</div>
+                        <div class="train-step-content">
+                            <strong>Un tap y listo</strong>
+                            <span>Detecta el cruce más cercano automáticamente</span>
+                        </div>
+                    </div>
+                    <div class="train-step">
+                        <div class="train-step-num">✓</div>
+                        <div class="train-step-content">
+                            <strong>Todos reciben la alerta</strong>
+                            <span>Los que tengan ese cruce activado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seleccionar cruces -->
+        <div class="train-crossings-section">
+            <h3>Elige qué cruces te interesan 🎯</h3>
+            <p>Solo recibes alertas de los cruces que tú actives. Sin spam, sin notificaciones de más.</p>
+            
+            <div class="train-crossings-demo">
+                <div class="train-map-mockup">
+                    <div class="train-map-bg"></div>
+                    <div class="train-line"></div>
+                    <div class="train-crossing-point active slow" style="top: 15%; left: 25%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Av. Gobernadores<br><small>⚠️ ~30 min</small></div>
+                    </div>
+                    <div class="train-crossing-point" style="top: 28%; left: 40%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Colosio - Las Flores</div>
+                    </div>
+                    <div class="train-crossing-point active" style="top: 42%; left: 52%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Xalisco - El Koa</div>
+                    </div>
+                    <div class="train-crossing-point slow" style="top: 58%; left: 60%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Los Limones<br><small>⚠️ Suele tardar</small></div>
+                    </div>
+                    <div class="train-crossing-point active" style="top: 72%; left: 68%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Rancho Quevedeño</div>
+                    </div>
+                    <div class="train-crossing-point" style="top: 85%; left: 78%;">
+                        <div class="crossing-marker">🚧</div>
+                        <div class="crossing-label">Parque Ecológico</div>
+                    </div>
+                </div>
+                <div class="train-settings-mockup">
+                    <div class="train-settings-header">
+                        <span>🔔 Mis alertas de tren</span>
+                    </div>
+                    <div class="train-toggle-list">
+                        <div class="train-toggle-item slow-crossing">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Av. Gobernadores</span>
+                                <span class="train-toggle-distance">⚠️ Suele tardar ~30 min</span>
+                            </div>
+                            <div class="train-toggle active">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div class="train-toggle-item">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Colosio - Las Flores</span>
+                                <span class="train-toggle-distance">2.1 km de ti</span>
+                            </div>
+                            <div class="train-toggle">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div class="train-toggle-item">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Xalisco - El Koa</span>
+                                <span class="train-toggle-distance">3.4 km de ti</span>
+                            </div>
+                            <div class="train-toggle active">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div class="train-toggle-item slow-crossing">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Los Limones</span>
+                                <span class="train-toggle-distance">⚠️ Suele tardar mucho</span>
+                            </div>
+                            <div class="train-toggle active">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div class="train-toggle-item">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Rancho Quevedeño</span>
+                                <span class="train-toggle-distance">5.8 km de ti</span>
+                            </div>
+                            <div class="train-toggle">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div class="train-toggle-item">
+                            <div class="train-toggle-info">
+                                <span class="train-toggle-name">🚧 Parque Ecológico</span>
+                                <span class="train-toggle-distance">7.2 km de ti</span>
+                            </div>
+                            <div class="train-toggle">
+                                <div class="train-toggle-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="train-settings-footer">
+                        <span>3 cruces activados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notificación ejemplo -->
+        <div class="train-notification-section">
+            <h3>Así recibes la alerta 📱</h3>
+            <div class="train-notification-demo">
+                <div class="notification-mockup">
+                    <div class="notification-bar">
+                        <span class="notification-time">9:41</span>
+                        <span class="notification-icons">📶 🔋</span>
+                    </div>
+                    <div class="notification-card train-notif">
+                        <div class="notification-app">
+                            <span class="notification-app-icon">🚌</span>
+                            <span class="notification-app-name">Ruteando®</span>
+                            <span class="notification-app-time">ahora</span>
+                        </div>
+                        <div class="notification-content">
+                            <strong>🚂 ¡Tren en Av. Gobernadores!</strong>
+                            <p>@tepic_rider reportó el tren hace 30 seg. ⚠️ Este cruce suele tardar ~30 min.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="train-notification-info">
+                    <div class="train-notif-feature">
+                        <span>⚡</span>
+                        <div>
+                            <strong>Instantáneo</strong>
+                            <span>La notificación llega en segundos</span>
+                        </div>
+                    </div>
+                    <div class="train-notif-feature">
+                        <span>👤</span>
+                        <div>
+                            <strong>Anónimo o con crédito</strong>
+                            <span>Tú decides si mostrar tu apodo</span>
+                        </div>
+                    </div>
+                    <div class="train-notif-feature">
+                        <span>🏆</span>
+                        <div>
+                            <strong>Ganas reconocimientos</strong>
+                            <span>La comunidad te agradece las alertas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA del tren -->
+        <div class="train-cta">
+            <div class="train-cta-card">
+                <div class="train-cta-emoji">🚂💨</div>
+                <h4>¿Cuántas veces te ha tocado el tren?</h4>
+                <p>Con Ruteando® eso se acaba. La comunidad te avisa antes de que llegues al cruce.</p>
+                <div class="train-cta-stats">
+                    <div class="train-cta-stat">
+                        <span class="stat-num">6</span>
+                        <span class="stat-label">cruces mapeados</span>
+                    </div>
+                    <div class="train-cta-stat">
+                        <span class="stat-num">~30</span>
+                        <span class="stat-label">min en Gobernadores 😅</span>
+                    </div>
+                    <div class="train-cta-stat">
+                        <span class="stat-num">∞</span>
+                        <span class="stat-label">corajes evitados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Comunidad -->
     <section class="community" id="comunidad">
