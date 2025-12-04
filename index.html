@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruteando - Tu amigo que se sabe todas las rutas del transporte público de Tepic</title>
+    <title>Ruteando - La app que SÍ TE DICE CÓMO moverte en el transporte público de Tepic</title>
     <meta name="description" content="Próximamente: La app que te dice cómo llegar en camión en Tepic. Qué ruta tomar, dónde subirte, dónde bajarte. Regístrate para ser el primero en tenerla.">
     <meta name="keywords" content="rutas tepic, camiones tepic, transporte público tepic, app rutas nayarit, ruteando">
-    
-    <!-- Open Graph -->
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Ruteando - Próximamente en Tepic">
     <meta property="og:description" content="La app que te dice cómo llegar en camión. Qué ruta tomar, dónde subirte, dónde bajarte. ¡Pronto disponible!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ruteando.mx">
+    <meta property="og:image" content="https://ruteando.mx/imagenes/portada.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Ruteando">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ruteando - Próximamente en Tepic">
+    <meta name="twitter:description" content="La app que te dice cómo llegar en camión. Qué ruta tomar, dónde subirte, dónde bajarte. ¡Pronto disponible!">
+    <meta name="twitter:image" content="https://ruteando.mx/imagenes/portada.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +39,7 @@
             --darker: #020617;
             --light: #F8FAFC;
             --gray: #64748B;
+            --orange: #F97316;
             --gradient: linear-gradient(135deg, #0EA5E9 0%, #22C55E 100%);
         }
 
@@ -349,22 +361,22 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 30px;
+            width: 100px;
+            height: 20px;
             background: #0F172A;
             border-radius: 0 0 20px 20px;
         }
 
         .phone-content {
-            padding: 50px 15px 15px;
+            padding: 35px 10px 15px;
             height: 100%;
         }
 
         .phone-search {
             background: white;
             border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         .phone-search-item {
@@ -441,7 +453,7 @@
             background: white;
             border-radius: 12px;
             padding: 10px;
-            margin-top: 12px;
+            margin-top: 10px;
             color: var(--dark);
         }
 
@@ -766,6 +778,451 @@
         .comparison-list li:last-child {
             border-bottom: none;
         }
+
+        /* ============ NUEVA SECCIÓN: COMPARTIR TRAYECTO ============ */
+        .live-tracking {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(249, 115, 22, 0.05));
+        }
+
+        .live-tracking-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .live-tracking-text {
+            order: 1;
+        }
+
+        .live-tracking-visual {
+            order: 2;
+        }
+
+        .future-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange), var(--accent));
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .live-tracking-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .live-tracking-text h2 .orange {
+            color: var(--orange);
+        }
+
+        .live-tracking-text > p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .tracking-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tracking-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .tracking-feature-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tracking-feature-text h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .tracking-feature-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Visual del tracking */
+        .tracking-mockup {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .tracking-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .tracking-header .icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .tracking-header .info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .tracking-header .info span {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .tracking-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+            background: rgba(34, 197, 94, 0.15);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .tracking-status .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .tracking-map {
+            background: linear-gradient(135deg, #1E293B, #0F172A);
+            border-radius: 16px;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .tracking-map::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                    linear-gradient(90deg, transparent 48%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 52%),
+                    linear-gradient(0deg, transparent 48%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 52%);
+            background-size: 30px 30px;
+        }
+
+        .tracking-route {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: rgba(249, 115, 22, 0.3);
+            border-radius: 2px;
+        }
+
+        .tracking-route::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+
+        .tracking-bus {
+            position: absolute;
+            top: 25%;
+            left: 55%;
+            font-size: 2rem;
+            animation: trackingBusMove 4s ease-in-out infinite;
+        }
+
+        @keyframes trackingBusMove {
+            0%, 100% { left: 50%; }
+            50% { left: 65%; }
+        }
+
+        .tracking-users {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .tracking-users .avatars {
+            display: flex;
+        }
+
+        .tracking-users .avatar {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient);
+            border-radius: 50%;
+            border: 2px solid var(--darker);
+            margin-left: -8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .tracking-users .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .tracking-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .tracking-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+
+        .tracking-stat .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .tracking-stat .label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+
+        /* ============ SECCIÓN: GAMIFICACIÓN ============ */
+        .gamification {
+            padding: 4rem 2rem;
+        }
+
+        .gamification-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .badge-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .badge-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .badge-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .badge-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* ============ SECCIÓN: COMUNIDAD ============ */
+        .community {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(34, 197, 94, 0.03), transparent);
+        }
+
+        .community-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .community-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .community-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .community-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .community-text {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .community-text strong {
+            color: var(--light);
+        }
+
+        .community-highlight {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .community-highlight p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* ============ SECCIÓN: COMPARTIR ============ */
+        .share-section {
+            padding: 2rem 2rem;
+        }
+
+        .share-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(14, 165, 233, 0.05);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+        }
+
+        .share-box h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .share-box p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .share-btn.facebook {
+            background: #1877F2;
+            color: white;
+        }
+
+        .share-btn.facebook:hover {
+            background: #0d65d9;
+            transform: translateY(-2px);
+        }
+
+        .share-btn.copy {
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .share-btn.copy:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
 
         /* CTA Section */
         .cta {
@@ -1095,6 +1552,8 @@
                 display: none;
             }
         }
+
+
     </style>
 </head>
 <body>
@@ -1138,7 +1597,7 @@
                 </h1>
                 <p>
                     La primera app que te dice <strong>cómo llegar en transporte público</strong> en Tepic.
-                    Qué ruta tomar, dónde subirte, dónde bajarte. Así de fácil.
+                    Qué ruta tomar, dónde subirte, dónde bajarte. Así de fácil, <strong style="color: white">¡Y GRATIS!</strong>
                 </p>
                 <div class="coming-soon-badge">
                     🚀 PRÓXIMAMENTE
@@ -1165,7 +1624,7 @@
                                 </div>
                                 <div class="phone-search-item">
                                     <div class="phone-search-dot red"></div>
-                                    <span>Ciudad Universitaria</span>
+                                    <span>Plaza Fórum</span>
                                 </div>
                             </div>
                             <div class="phone-map">
@@ -1192,16 +1651,16 @@
                             </div>
                             <div class="phone-card">
                                 <div class="phone-card-header">
-                                    <span class="phone-card-badge">AGR-UNI</span>
-                                    <span class="phone-card-title">Agrónomos - Universidad</span>
-                                    <span class="phone-card-time">~22 min</span>
+                                    <span class="phone-card-badge">PROG-4</span>
+                                    <span class="phone-card-title">Progreso 4</span>
+                                    <span class="phone-card-time">22 min <small>aprox</small></span>
                                 </div>
                                 <div class="phone-steps">
                                     <div class="phone-step">
                                         <div class="phone-step-icon walk">🚶</div>
                                         <div class="phone-step-text">
                                             <strong>Camina aprox 3 min</strong><br>
-                                            <span>Hacia Av. Insurgentes</span>
+                                            <span>Hacia Av. Colosio</span>
                                         </div>
                                     </div>
                                     <div class="phone-step">
@@ -1215,7 +1674,7 @@
                                         <div class="phone-step-icon ride">🚌</div>
                                         <div class="phone-step-text">
                                             <strong>Viaja aprox 15 min</strong><br>
-                                            <span>Aproximadamente</span>
+                                            <span>Mientras, escucháte una de Chalino 📯</span>
                                         </div>
                                     </div>
                                     <div class="phone-step">
@@ -1229,7 +1688,7 @@
                                         <div class="phone-step-icon arrive">🎯</div>
                                         <div class="phone-step-text">
                                             <strong>¡Llegaste!</strong><br>
-                                            <span>Ciudad Universitaria</span>
+                                            <span>Plaza Fórum</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1314,36 +1773,199 @@
         </div>
     </section>
 
-    <!-- Comparison -->
+
+    <!-- Comparison - LA DIFERENCIA -->
     <section class="comparison">
         <div class="section-header">
-            <span class="section-tag">LA DIFERENCIA</span>
-            <h2 class="section-title">Antes vs Ahora</h2>
+            <span class="section-tag">LA NETA</span>
+            <h2 class="section-title">Otras apps vs Ruteando®</h2>
         </div>
         <div class="comparison-grid">
             <div class="comparison-card bad">
                 <div class="comparison-header">
-                    ❌ Antes
+                    ❌ Otras apps
                 </div>
                 <ul class="comparison-list">
-                    <li>😵 Preguntar al chofer si te deja</li>
-                    <li>🤷 No saber dónde bajarte</li>
-                    <li>😰 Esperar en el lugar equivocado</li>
-                    <li>🔄 No saber cuántos transbordos</li>
-                    <li>⏰ Llegar tarde siempre</li>
+                    <li>🗺️ "Aquí están las rutas, bro, hazte bolas"</li>
+                    <li>🤷 Te dicen las rutas pero no cuál tomar</li>
+                    <li>😵 Cero instrucciones de dónde bajar</li>
+                    <li>🔄 Transbordos? Ni de pedo jaja</li>
+                    <li>📍 Mapas bonitos pero <s>inútiles</s> no usables</li>
                 </ul>
             </div>
             <div class="comparison-card good">
                 <div class="comparison-header">
-                    ✅ Con Ruteando
+                    ✅ Ruteando®
                 </div>
                 <ul class="comparison-list">
-                    <li>🎯 Sabes qué camión tomar</li>
-                    <li>📍 Sabes exactamente dónde bajar</li>
-                    <li>✓ Esperas donde sí pasa</li>
+                    <li>🎯 "Toma el Progreso 1, bájate en 15 min"</li>
+                    <li>📍 Te dice dónde subirte</li>
+                    <li>🔔 Te avisa cuándo pedir la parada</li>
                     <li>🗺️ Transbordos calculados</li>
-                    <li>⚡ Llegas a tiempo</li>
+                    <li>⚡ Instrucciones paso a paso con transbordos y todo el show</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- NUEVA SECCIÓN: Compartir Trayecto -->
+    <section class="live-tracking" id="tracking">
+        <div class="live-tracking-content">
+            <div class="live-tracking-text">
+                <div class="future-badge">🔮 LO QUE SE ESTÁ HORNEANDO</div>
+                <h2>Camiones en vivo.<br><span class="orange">Gracias a ti.</span></h2>
+                <p>
+                    ¿Y si pudieras ver dónde va el camión en tiempo real? Sin depender de que las empresas pongan GPS.
+                    <strong>La comunidad es el GPS.</strong>
+                </p>
+
+                <div class="tracking-features">
+                    <div class="tracking-feature">
+                        <span class="tracking-feature-icon">📍</span>
+                        <div class="tracking-feature-text">
+                            <h4>"Empezar a rutear 🤘"</h4>
+                            <p>Cuando te subes al camión, presionas un botón y compartes tu trayecto de forma anónima.</p>
+                        </div>
+                    </div>
+                    <div class="tracking-feature">
+                        <span class="tracking-feature-icon">👥</span>
+                        <div class="tracking-feature-text">
+                            <h4>Todos ayudan</h4>
+                            <p>Entre más personas usen la app, más preciso es el tracking. La comunidad hace la chamba 🙏.</p>
+                        </div>
+                    </div>
+                    <div class="tracking-feature">
+                        <span class="tracking-feature-icon">🏆</span>
+                        <div class="tracking-feature-text">
+                            <h4>Gana reconocimiento</h4>
+                            <p>Acumula kilómetros, desbloquea logros y presume cuánto has aportado a la comunidad 😎.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="live-tracking-visual">
+                <div class="tracking-mockup">
+                    <div class="tracking-header">
+                        <div class="icon">🚌</div>
+                        <div class="info">
+                            <h3>Ruta México</h3>
+                            <span>Última actualización hace 2 min</span>
+                        </div>
+                        <div class="tracking-status">
+                            <span class="dot"></span>
+                            EN VIVO
+                        </div>
+                    </div>
+
+                    <div class="tracking-map">
+                        <div class="tracking-route"></div>
+                        <div class="tracking-bus">🚌</div>
+                        <div class="tracking-users">
+                            <div class="avatars">
+                                <div class="avatar">👤</div>
+                                <div class="avatar">👤</div>
+                                <div class="avatar">👤</div>
+                            </div>
+                            <span>3 compartiendo</span>
+                        </div>
+                    </div>
+
+                    <div class="tracking-stats">
+                        <div class="tracking-stat">
+                            <div class="value">847</div>
+                            <div class="label">km compartidos hoy</div>
+                        </div>
+                        <div class="tracking-stat">
+                            <div class="value">156</div>
+                            <div class="label">usuarios activos</div>
+                        </div>
+                        <div class="tracking-stat">
+                            <div class="value">12</div>
+                            <div class="label">rutas en vivo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gamificación -->
+    <section class="gamification">
+        <div class="section-header">
+            <span class="section-tag">RECONOCIMIENTO</span>
+            <h2 class="section-title">Desbloquea logros por rutear 💎</h2>
+            <p class="section-subtitle">Entre más rutees, más reconocimiento. Presume cuánto has aportado 😎.</p>
+        </div>
+        <div class="gamification-grid">
+            <div class="badge-card">
+                <div class="emoji">🌱</div>
+                <h4>Novato(a)</h4>
+                <p>Primeros 10 km compartidos</p>
+            </div>
+            <div class="badge-card">
+                <div class="emoji">⭐</div>
+                <h4>Frecuente</h4>
+                <p>200+ km compartidos</p>
+            </div>
+            <div class="badge-card">
+                <div class="emoji">👑</div>
+                <h4>Rey/Reyna de la Ruta</h4>
+                <p>1000+ km en una sola ruta</p>
+            </div>
+            <div class="badge-card">
+                <div class="emoji">🌅</div>
+                <h4>Madrugador(a)</h4>
+                <p>Rutear antes de las 7am</p>
+            </div>
+            <div class="badge-card">
+                <div class="emoji">🔥</div>
+                <h4>Racha de 7</h4>
+                <p>7 días seguidos compartiendo</p>
+            </div>
+            <div class="badge-card">
+                <div class="emoji">🌟</div>
+                <h4>Leyenda</h4>
+                <p>5000+ km totales</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comunidad -->
+    <section class="community" id="comunidad">
+        <div class="community-box">
+            <div class="community-emoji">🤝</div>
+            <h2 class="community-title">Esto no es solo será una app.<br>Es un esfuerzo de todos.</h2>
+            <p class="community-text">
+                Ruteando® es <strong>100% gratis</strong>. No hay empresa detrás, no hay inversionistas, no hay publicidad molesta.
+                Solo un wey de Tepic <small>(sí, nomás yo)</small>, que quiere que moverse en la ciudad sea menos complicado.
+                <br><br>
+                Eso sí, una app sin usuarios no sirve de nada. <strong>El éxito de Ruteando® depende de que la gente la adopte.</strong>
+                Nada me cuesta venderla al mejor postor. Pero quiero que sea de todos, para todos.
+            </p>
+            <div class="community-highlight">
+                <p>Si te late la idea, compártela. Paro 💚.</p>
+            </div>
+            <p class="community-text" style="font-size: 1rem; margin-bottom: 0;">
+                Entre más personas la usemos, mejor funciona para todos. Especialmente el tracking en vivo que depende 100% de los ruteros, ruteras y ruteres 😎.
+            </p>
+        </div>
+    </section>
+
+    <!-- Compartir -->
+    <section class="share-section">
+        <div class="share-box">
+            <h3>📢 Comparte Ruteando®</h3>
+            <p>Tira paro 🙏. Ayúdame a que más personas conozcan la app que está por llegar. Cada compartida cuenta.</p>
+            <div class="share-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ruteando.mx" target="_blank" class="share-btn facebook">
+                    📘 Compartir en Facebook
+                </a>
+                <button class="share-btn copy" onclick="copyLink()">
+                    🔗 Copiar enlace
+                </button>
             </div>
         </div>
     </section>
@@ -1353,8 +1975,8 @@
         <div class="cta-box">
             <div class="cta-content">
                 <div class="launch-badge">🚀 LANZAMIENTO PRONTO</div>
-                <h2>Sé el primero en tenerla</h2>
-                <p>Deja tu correo y recibe una notificación cuando esté disponible. Cero spam, neta, es sólo para que sepas que ya está lista.</p>
+                <h2>Sé de los primeros en tenerla</h2>
+                <p>Deja tu correo y te enviaré una notificación cuando esté disponible. Cero spam, neta, es sólo para que sepas que ya puedes rutear 😉.</p>
                 <form class="notify-form" id="notify-form">
                     <input type="email" id="email-input" placeholder="tu@correo.com" class="notify-input" required>
                     <button type="submit" class="btn-white">
@@ -1376,19 +1998,20 @@
             <h2 class="donations-title">¿Quieres apoyar Ruteando®?</h2>
             <p class="donations-text">
                 Ruteando® es y será <strong>100% gratis</strong>. Si te late lo que estoy haciendo 
-                y quieres picharte un chesco o una cheve, aquí puedes. Todo se usa para
-                los gastos (servidores, dominio, cuota de Play Store) para mantener la app funcionando sin costo para todos.
+                y quieres picharte un chesco o una cheve, aquí puedes. Todo se usará para
+                los gastos (servidores, dominio, cuota de Play Store, cuota de AppStore) para mantener la app funcionando sin costo para la banda.
             </p>
             <div class="donations-buttons">
                 <a href="https://paypal.me/ruteandotepic" target="_blank" class="btn-donate paypal">
                     💳 PayPal
                 </a>
-<!--                <a href="#" class="btn-donate transfer">-->
-<!--                    🏦 Transferencia-->
-<!--                </a>-->
             </div>
             <p class="donations-note">
                 Digo, no es obligatorio, pero se agradece un chingo 🙏
+            </p>
+            <p class="donations-note" style="margin-top: 10px">
+                Si eres una empresa o alguien con varo y quieres donar para que aparezca tu nombre en la app como patrocinador oficial de la champions, tírame un mensaje y me comunico contigo.
+                <br><button id="tirar-mensaje">📨 Aquí mero</button>
             </p>
         </div>
     </section>
@@ -1397,7 +2020,7 @@
     <footer>
         <span class="footer-logo">Ruteando®</span>
         <p class="footer-text" style="font-size: 1.1rem;">
-            Hecho con el <span class="footer-heart">❤️</span> por un Kora en Tepic, Nayarit
+            Hecho con <span class="footer-heart">❤️</span> por un Kora <small>(Nayarita)</small> en Tepic, Nayarit
         </p>
         <p class="footer-text" style="opacity: 0.6; font-size: 0.85rem; margin-top: 0.3rem;">
             PAPS
