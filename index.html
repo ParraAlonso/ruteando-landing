@@ -1446,6 +1446,202 @@
             font-style: italic;
         }
 
+        #tirar-mensaje {
+            margin-top: 10px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        #tirar-mensaje:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Modal de contacto */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--light);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--gray);
+        }
+
+        .form-group textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        .form-group .char-count {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+
+        .form-group .char-count.warning {
+            color: var(--accent);
+        }
+
+        .form-group .char-count.limit {
+            color: #EF4444;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Outfit', sans-serif;
+            margin-top: 0.5rem;
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-enviar:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .modal-message {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .modal-message.success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86EFAC;
+        }
+
+        .modal-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #FCA5A5;
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -2010,11 +2206,42 @@
                 Digo, no es obligatorio, pero se agradece un chingo 🙏
             </p>
             <p class="donations-note" style="margin-top: 10px">
-                Si eres una empresa o alguien con varo y quieres donar para que aparezca tu nombre en la app como patrocinador oficial de la champions, tírame un mensaje y me comunico contigo.
+                Si eres una empresa o alguien con varo y quieres donar para que aparezca tu nombre en la app como patrocinador oficial de la champions, tírame un mensaje y me comunico contigo, sin compromiso.
                 <br><button id="tirar-mensaje">📨 Aquí mero</button>
             </p>
         </div>
     </section>
+
+    <!-- Modal de Contacto -->
+    <div class="modal-overlay" id="modal-contacto">
+        <div class="modal">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <h3 class="modal-title">Déjame tu mensaje aquí</h3>
+            <p class="modal-subtitle">Cuéntame tu propuesta y me pongo en contacto contigo.</p>
+
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="contact-nombre">Tu nombre / El de tu empresa</label>
+                    <input type="text" id="contact-nombre" name="nombre" placeholder="Ej: Juan Pérez / Tacos El Güero" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-telefono">Teléfono</label>
+                    <input type="tel" id="contact-telefono" name="telefono" placeholder="Ej: 311 123 4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-mensaje">Mensaje</label>
+                    <textarea id="contact-mensaje" name="mensaje" placeholder="Cuéntame tu idea o propuesta..." maxlength="300" required></textarea>
+                    <div class="char-count"><span id="char-current">0</span>/300</div>
+                </div>
+
+                <button type="submit" class="btn-enviar">🚀 Enviar mensaje</button>
+            </form>
+
+            <div id="modal-msg" class="modal-message" style="display: none;"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -2180,6 +2407,110 @@
                 msg.style.transition = 'opacity 0.3s';
                 setTimeout(() => msg.remove(), 300);
             }, 4000);
+        }
+
+        // Modal de contacto
+        const tirarMensajeBtn = document.getElementById('tirar-mensaje');
+        const modalOverlay = document.getElementById('modal-contacto');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const contactForm = document.getElementById('contact-form');
+        const mensajeTextarea = document.getElementById('contact-mensaje');
+        const charCurrent = document.getElementById('char-current');
+        const charCountDiv = document.querySelector('.char-count');
+
+        // Abrir modal
+        tirarMensajeBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Cerrar modal
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Contador de caracteres
+        mensajeTextarea.addEventListener('input', () => {
+            const len = mensajeTextarea.value.length;
+            charCurrent.textContent = len;
+
+            charCountDiv.classList.remove('warning', 'limit');
+            if (len >= 300) {
+                charCountDiv.classList.add('limit');
+            } else if (len >= 250) {
+                charCountDiv.classList.add('warning');
+            }
+        });
+
+        // Enviar formulario
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('.btn-enviar');
+            const modalMsg = document.getElementById('modal-msg');
+
+            const nombre = document.getElementById('contact-nombre').value.trim();
+            const telefono = document.getElementById('contact-telefono').value.trim();
+            const mensaje = document.getElementById('contact-mensaje').value.trim();
+
+            if (!nombre || !telefono || !mensaje) {
+                showModalMessage('Por favor llena todos los campos', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '⏳ Enviando...';
+
+            try {
+                const response = await fetch('mensaje.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nombre, telefono, mensaje })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showModalMessage('🎉 ¡Muchas gracias! Me comunico contigo en cuanto pueda 😀', 'success');
+                    contactForm.reset();
+                    charCurrent.textContent = '0';
+                    charCountDiv.classList.remove('warning', 'limit');
+
+                    setTimeout(() => {
+                        closeModal();
+                        modalMsg.style.display = 'none';
+                    }, 3000);
+                } else {
+                    showModalMessage(result.error || '❌ Hubo un error, intenta de nuevo', 'error');
+                }
+            } catch (error) {
+                showModalMessage('❌ Error de conexión, intenta de nuevo', 'error');
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '🚀 Enviar mensaje';
+        });
+
+        function showModalMessage(text, type) {
+            const modalMsg = document.getElementById('modal-msg');
+            modalMsg.textContent = text;
+            modalMsg.className = 'modal-message ' + type;
+            modalMsg.style.display = 'block';
         }
 
     </script>
