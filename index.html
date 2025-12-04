@@ -779,6 +779,202 @@
             border-bottom: none;
         }
 
+        .comparison-note {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            line-height: 1.6;
+        }
+
+        .comparison-note strong {
+            color: var(--secondary);
+        }
+
+        /* ============ SECCIÓN: DISPONIBILIDAD ============ */
+        .availability {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(34, 197, 94, 0.03));
+        }
+
+        .platforms-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .platform-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            transition: all 0.3s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .platform-status.ready {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--secondary);
+        }
+
+        .platform-status.coming {
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--orange);
+        }
+
+        .platform-status .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .platform-status.ready .status-dot {
+            animation: blink 1s infinite;
+        }
+
+        /* Timeline de lanzamiento */
+        .launch-timeline {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            width: 2px;
+            height: calc(100% - 40px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-item.done::before {
+            background: var(--secondary);
+        }
+
+        .timeline-item.current::before {
+            background: linear-gradient(to bottom, var(--orange), rgba(255,255,255,0.1));
+        }
+
+        .timeline-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            z-index: 1;
+        }
+
+        .timeline-item.done .timeline-icon {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .timeline-item.current .timeline-icon {
+            background: rgba(249, 115, 22, 0.2);
+            border-color: var(--orange);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item.pending .timeline-icon {
+            opacity: 0.5;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item.done .timeline-content h4 {
+            color: var(--secondary);
+        }
+
+        .timeline-item.current .timeline-content h4 {
+            color: var(--orange);
+        }
+
+        .timeline-item.pending .timeline-content h4 {
+            opacity: 0.5;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .timeline-item.pending .timeline-content p {
+            opacity: 0.5;
+        }
+
+        .availability-note {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .availability-note strong {
+            color: var(--light);
+        }
+
         /* ============ NUEVA SECCIÓN: COMPARTIR TRAYECTO ============ */
         .live-tracking {
             padding: 6rem 2rem;
@@ -1044,6 +1240,205 @@
             color: var(--gray);
             margin-top: 0.3rem;
         }
+
+        /* ============ SECCIÓN: COMUNIDAD ACTIVA (MAPA) ============ */
+        .active-community {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(14, 165, 233, 0.03), transparent);
+        }
+
+        .community-map-container {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .community-map {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-radius: 24px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .map-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                    linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%),
+                    linear-gradient(0deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%);
+            background-size: 50px 50px;
+        }
+
+        .map-user {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .user-icon {
+            font-size: 1.2rem;
+            z-index: 2;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .user-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.3);
+            animation: userPulse 2s ease-out infinite;
+        }
+
+        .map-user:nth-child(odd) .user-pulse {
+            animation-delay: 0.5s;
+            background: rgba(34, 197, 94, 0.3);
+        }
+
+        .map-user:nth-child(3n) .user-pulse {
+            animation-delay: 1s;
+            background: rgba(249, 115, 22, 0.3);
+        }
+
+        @keyframes userPulse {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .map-bus {
+            position: absolute;
+            font-size: 1.8rem;
+            z-index: 3;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+        }
+
+        .bus-1 {
+            animation: busRoute1 12s linear infinite;
+        }
+
+        .bus-2 {
+            animation: busRoute2 15s linear infinite;
+            animation-delay: -5s;
+        }
+
+        .bus-3 {
+            animation: busRoute3 10s linear infinite;
+            animation-delay: -3s;
+        }
+
+        @keyframes busRoute1 {
+            0% { top: 30%; left: 5%; }
+            25% { top: 35%; left: 30%; }
+            50% { top: 45%; left: 60%; }
+            75% { top: 55%; left: 80%; }
+            100% { top: 60%; left: 95%; }
+        }
+
+        @keyframes busRoute2 {
+            0% { top: 70%; left: 90%; transform: scaleX(-1); }
+            25% { top: 60%; left: 65%; transform: scaleX(-1); }
+            50% { top: 50%; left: 40%; transform: scaleX(-1); }
+            75% { top: 40%; left: 20%; transform: scaleX(-1); }
+            100% { top: 25%; left: 5%; transform: scaleX(-1); }
+        }
+
+        @keyframes busRoute3 {
+            0% { top: 15%; left: 50%; }
+            33% { top: 40%; left: 55%; }
+            66% { top: 65%; left: 45%; }
+            100% { top: 85%; left: 50%; }
+        }
+
+        .map-label {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.2);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .community-stats-live {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-live {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .community-quote {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .community-quote strong {
+            color: var(--light);
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .community-map {
+                height: 300px;
+            }
+
+            .community-stats-live {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .community-quote {
+                font-size: 1.1rem;
+            }
+        }
+
 
         /* ============ SECCIÓN: GAMIFICACIÓN ============ */
         .gamification {
@@ -1983,10 +2378,13 @@
                 </div>
                 <ul class="comparison-list">
                     <li>🗺️ "Aquí están las rutas, bro, hazte bolas"</li>
-                    <li>🤷 Te dicen las rutas pero no cuál tomar</li>
+                    <li>🤷 Te dicen muestran rutas (rayitas de colores) pero no cuál tomar</li>
                     <li>😵 Cero instrucciones de dónde bajar</li>
                     <li>🔄 Transbordos? Ni de pedo jaja</li>
                     <li>📍 Mapas bonitos pero <s>inútiles</s> no usables</li>
+                    <li>🌐 "Apps" que solo abren una página web... genios</li>
+                    <li>💀 Abandonadas o "en mantenimiento"</li>
+                    <li>📱 Tumbadas de PlayStore y AppStore</li>
                 </ul>
             </div>
             <div class="comparison-card good">
@@ -1999,9 +2397,74 @@
                     <li>🔔 Te avisa cuándo pedir la parada</li>
                     <li>🗺️ Transbordos calculados</li>
                     <li>⚡ Instrucciones paso a paso con transbordos y todo el show</li>
+                    <li>🔄 Actualizaciones y soporte activo</li>
+                    <li>📱 App nativa, real, bien hecha, para Android e iOS (tiendas oficiales)</li>
+                    <li>✈️ Funciona sin internet (modo offline)</li>
                 </ul>
             </div>
         </div>
+        <p class="comparison-note">
+            <strong>Ruteando® es diferente.</strong>
+        </p>
+    </section>
+
+
+    <!-- Disponibilidad - Android e iOS -->
+    <section class="availability" id="disponibilidad">
+        <div class="section-header">
+            <span class="section-tag">DISPONIBILIDAD</span>
+            <h2 class="section-title">Android e iOS. Para todos.</h2>
+            <p class="section-subtitle">Porque no importa qué teléfono tengas, aquí todos ruteamos 🤘.</p>
+        </div>
+
+        <div class="platforms-container">
+            <div class="platform-card">
+                <div class="platform-icon">🤖</div>
+                <h3>Android</h3>
+                <p>Google Play Store</p>
+                <div class="platform-status ready">
+                    <span class="status-dot"></span>
+                    App lista
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🍎</div>
+                <h3>iOS</h3>
+                <p>App Store</p>
+                <div class="platform-status coming">
+                    <span class="status-dot"></span>
+                    Próximamente
+                </div>
+            </div>
+        </div>
+
+        <div class="launch-timeline">
+            <div class="timeline-item done">
+                <div class="timeline-icon">✅</div>
+                <div class="timeline-content">
+                    <h4>Desarrollo</h4>
+                    <p>App terminada y funcional</p>
+                </div>
+            </div>
+            <div class="timeline-item current">
+                <div class="timeline-icon">⏳</div>
+                <div class="timeline-content">
+                    <h4>En validación de Google y Apple</h4>
+                    <p>Proceso de revisión de las tiendas (puede tardar unos días)</p>
+                </div>
+            </div>
+            <div class="timeline-item pending">
+                <div class="timeline-icon">🤘</div>
+                <div class="timeline-content">
+                    <h4>¡A rutear!</h4>
+                    <p>Disponible para descargar</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="availability-note">
+            <strong>Una vez que pase la validación y podamos rutear, te avisaré de volada.</strong>
+        </p>
     </section>
 
 
@@ -2085,6 +2548,101 @@
                 </div>
             </div>
         </div>
+    </section>
+
+
+    <!-- Comunidad Activa - Mapa con usuarios -->
+    <section class="active-community">
+        <div class="section-header">
+            <span class="section-tag">EL PODER DE TODOS</span>
+            <h2 class="section-title">Tepic, conectado.</h2>
+            <p class="section-subtitle">Cada punto es alguien como tú, moviéndose por la ciudad y ayudando a otros a llegar, sin querer queriendo.</p>
+        </div>
+
+        <div class="community-map-container">
+            <div class="community-map">
+                <!-- Calles del mapa -->
+                <div class="map-grid"></div>
+
+                <!-- Usuarios compartiendo con onditas -->
+                <div class="map-user" style="top: 15%; left: 20%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 25%; left: 65%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 40%; left: 35%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 35%; left: 80%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 55%; left: 15%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 50%; left: 50%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 65%; left: 70%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 75%; left: 25%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 70%; left: 55%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 85%; left: 40%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 20%; left: 45%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+                <div class="map-user" style="top: 60%; left: 85%;">
+                    <div class="user-pulse"></div>
+                    <div class="user-icon">👤</div>
+                </div>
+
+                <!-- Camiones moviéndose -->
+                <div class="map-bus bus-1">🚌</div>
+                <div class="map-bus bus-2">🚌</div>
+                <div class="map-bus bus-3">🚌</div>
+
+                <!-- Label de la ciudad -->
+                <div class="map-label">TEPIC</div>
+            </div>
+
+            <div class="community-stats-live">
+                <div class="stat-live">
+                    <span class="stat-number" id="live-users">247</span>
+                    <span class="stat-label">personas ruteando ahora</span>
+                </div>
+                <div class="stat-live">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">rutas activas</span>
+                </div>
+                <div class="stat-live">
+                    <span class="stat-number">1,847</span>
+                    <span class="stat-label">km compartidos hoy</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="community-quote">
+            No necesitamos GPS en los camiones.<br>
+            <strong>Nosotros somos el GPS</strong>
+        </p>
     </section>
 
 
