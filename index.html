@@ -2222,7 +2222,7 @@
             <form id="contact-form">
                 <div class="form-group">
                     <label for="contact-nombre">Tu nombre / El de tu empresa</label>
-                    <input type="text" id="contact-nombre" name="nombre" placeholder="Ej: Juan Pérez / Tacos El Güero" required>
+                    <input type="text" min="5" id="contact-nombre" name="nombre" placeholder="Ej: Juan Pérez / Tacos El Güero" required>
                 </div>
 
                 <div class="form-group">
@@ -2468,8 +2468,21 @@
             const telefono = document.getElementById('contact-telefono').value.trim();
             const mensaje = document.getElementById('contact-mensaje').value.trim();
 
+
             if (!nombre || !telefono || !mensaje) {
                 showModalMessage('Por favor llena todos los campos', 'error');
+                return;
+            }
+
+            if (nombre.length<5) {
+                showModalMessage('Pon tu nombre bien porfa', 'error');
+                document.getElementById('contact-nombre').focus();
+                return;
+            }
+
+            if (!parseInt(telefono) || telefono.length<10 || telefono.length>10) {
+                showModalMessage('Pon tu teléfono a 10 digitos please (sólo números)', 'error');
+                document.getElementById('contact-telefono').focus();
                 return;
             }
 
