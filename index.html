@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruteando - La app que SÍ TE DICE CÓMO moverte en el transporte público de Tepic</title>
-    <meta name="description" content="Próximamente: La app que te dice cómo llegar en camión en Tepic. Qué ruta tomar, dónde subirte, dónde bajarte. Regístrate para ser el primero en tenerla.">
-    <meta name="keywords" content="rutas tepic, camiones tepic, transporte público tepic, app rutas nayarit, ruteando">
+    <meta name="description" content="Próximamente: La app de Tepic que te dice cómo llegar en camión, te alerta del tren en tiempo real, desbloqueas logros y más. 100% GRATIS.">
+    <meta name="keywords" content="rutas tepic, camiones tepic, transporte público tepic, app rutas nayarit, ruteando, tren tepic, alertas tren">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Ruteando - Próximamente en Tepic">
-    <meta property="og:description" content="La app que te dice cómo llegar en camión. Qué ruta tomar, dónde subirte, dónde bajarte. ¡Pronto disponible!">
+    <meta property="og:description" content="🚌 Rutas de camión 🚂 Alertas del tren en vivo 🏆 Logros y recompensas 📍 Amigos en el mapa. Todo GRATIS. ¡Pronto disponible!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ruteando.mx">
     <meta property="og:image" content="https://ruteando.mx/imagenes/portada.png">
@@ -32,7 +32,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ruteando - Próximamente en Tepic">
-    <meta name="twitter:description" content="La app que te dice cómo llegar en camión. Qué ruta tomar, dónde subirte, dónde bajarte. ¡Pronto disponible!">
+    <meta name="twitter:description" content="🚌 Rutas de camión 🚂 Alertas del tren en vivo 🏆 Logros y recompensas 📍 Amigos en el mapa. Todo GRATIS. ¡Pronto disponible!">
     <meta name="twitter:image" content="https://ruteando.mx/imagenes/portada.png">
     
     <!-- Fonts -->
@@ -214,8 +214,44 @@
         .hero-text p {
             font-size: 1.25rem;
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.7;
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        .hero-features li {
+            font-size: 1.1rem;
+            color: var(--gray);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-features li strong {
+            color: var(--secondary);
+        }
+
+        .visitors-counter {
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .visitors-counter strong {
+            color: var(--secondary);
         }
 
         .hero-buttons {
@@ -3578,6 +3614,7 @@
             <a href="#amigos-mapa">📍 Amigos</a>
             <a href="#logros">🏆 Logros</a>
             <a href="#donar">🍺 Apoyar</a>
+            <a href="privacidad.html">Privacidad</a>
             <a href="#notifyme" class="btn-download">🔔 Avísame</a>
         </div>
         <button class="mobile-menu-btn">☰</button>
@@ -3591,6 +3628,7 @@
         <a href="#amigos-mapa">📍 Amigos en el Mapa</a>
         <a href="#logros">🏆 Logros</a>
         <a href="#donar">🍺 Apoyar</a>
+        <a href="privacidad.html">Privacidad</a>
         <a href="#notifyme" class="btn-download">🔔 Avísame</a>
     </div>
 
@@ -3603,9 +3641,15 @@
                     <span class="highlight">Empieza a llegar.</span>
                 </h1>
                 <p>
-                    La primera app que te dice <strong>cómo llegar en transporte público</strong> y <strong>te alerta del tren 🚂</strong> en Tepic.
-                    Qué ruta tomar, dónde subirte, dónde bajarte, dónde está el tren, desbloqueas logros. Y mucho más, así de fácil, <strong style="color: white">¡Y GRATIS!</strong>
+                    La primera app que te dice <strong>cómo llegar en transporte público</strong> en Tepic.
                 </p>
+                <ul class="hero-features">
+                    <li>🚌 Qué ruta tomar y dónde subirte</li>
+                    <li>📍 Dónde bajarte (sin pasarte)</li>
+                    <li>🚂 Alertas del tren en tiempo real</li>
+                    <li>🏆 Desbloquea logros mientras ruteas</li>
+                    <li>💚 <strong>100% GRATIS</strong>, sin anuncios molestos</li>
+                </ul>
                 <div class="coming-soon-badge">
                     🚀 PRÓXIMAMENTE
                 </div>
@@ -3616,6 +3660,9 @@
                     <a href="#como-funciona" class="btn-secondary">
                         Ver cómo funciona →
                     </a>
+                </div>
+                <div class="visitors-counter">
+                    👀 <strong id="visitors-count">282</strong> personas ya checaron Ruteando
                 </div>
             </div>
             <div class="hero-phone">
@@ -4230,17 +4277,17 @@
                     <h4>Corazón de Oro</h4>
                     <p>500 reconocimientos dados</p>
                 </div>
-                <div class="badge-card social referral">
+                <div class="badge-card social">
                     <div class="emoji">🤝</div>
                     <h4>Embajador(a)</h4>
                     <p>Refiere 5 amigos</p>
                 </div>
-                <div class="badge-card social referral">
+                <div class="badge-card social">
                     <div class="emoji">📢</div>
                     <h4>Influencer Local</h4>
                     <p>Refiere 20 amigos</p>
                 </div>
-                <div class="badge-card social referral">
+                <div class="badge-card social">
                     <div class="emoji">👑</div>
                     <h4>Padrino/Madrina</h4>
                     <p>Refiere 50 amigos</p>
@@ -5271,6 +5318,30 @@
             modalMsg.className = 'modal-message ' + type;
             modalMsg.style.display = 'block';
         }
+
+        // Contador de visitas únicas
+        (async function() {
+            const visitorsCount = document.getElementById('visitors-count');
+
+            // Generar o recuperar ID único del visitante
+            let visitorId = localStorage.getItem('ruteando_visitor_id');
+            if (!visitorId) {
+                visitorId = 'v_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('ruteando_visitor_id', visitorId);
+            }
+
+            try {
+                const response = await fetch('visitas.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ visitorId: visitorId })
+                });
+                const data = await response.json();
+                visitorsCount.textContent = data.count;
+            } catch (error) {
+                console.error('Error contando visita:', error);
+            }
+        })();
 
         // Copiar enlace al portapapeles
         function copyLink() {
