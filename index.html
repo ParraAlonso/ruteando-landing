@@ -20,9 +20,14 @@
     <meta property="og:site_name" content="Ruteando">
     <meta property="og:locale" content="es_MX">
 
-    <!-- WhatsApp específico -->
+    <!-- WhatsApp específico - imagen cuadrada más pequeña -->
     <meta property="og:image:alt" content="Ruteando - La app de transporte público de Tepic">
-    <link rel="image_src" href="https://ruteando.mx/imagenes/portada.png">
+    <link rel="image_src" href="https://ruteando.mx/imagenes/whatsapp_preview.png">
+    
+    <!-- Imagen secundaria para WhatsApp (más pequeña, cuadrada) -->
+    <meta property="og:image" content="https://ruteando.mx/imagenes/whatsapp_preview.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -3050,6 +3055,381 @@
             .train-notification-demo { grid-template-columns: 1fr; }
         }
 
+        /* ============ UBICACIÓN DE AMIGOS ============ */
+        .friends-location {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, var(--dark) 0%, #0a1a2e 100%);
+        }
+
+        .friends-location-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            align-items: center;
+        }
+
+        .friends-location-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .friends-feature {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .friends-feature:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateX(5px);
+        }
+
+        .friends-feature-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .friends-feature h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
+
+        .friends-feature p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        /* Mockup del mapa de amigos */
+        .friends-map-mockup {
+            background: #1a1a2e;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .friends-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(14, 165, 233, 0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .friends-map-status {
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .friends-map-live {
+            font-size: 0.8rem;
+            color: #22C55E;
+            font-weight: bold;
+            animation: pulse-text 2s infinite;
+        }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .friends-map-area {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            overflow: hidden;
+        }
+
+        /* Markers de amigos */
+        .friend-marker {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .friend-marker-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(14, 165, 233, 0.3);
+            border-radius: 50%;
+            animation: friend-pulse 2s infinite;
+        }
+
+        @keyframes friend-pulse {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        .friend-marker-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .friend-marker.you .friend-marker-icon {
+            background: var(--primary);
+            border: 3px solid white;
+        }
+
+        .friend-marker.on-route .friend-marker-icon {
+            background: #22C55E;
+        }
+
+        .friend-marker.walking .friend-marker-icon {
+            background: #F97316;
+        }
+
+        .friend-marker.stationary .friend-marker-icon {
+            background: #64748B;
+        }
+
+        .friend-marker-label {
+            font-size: 0.7rem;
+            color: white;
+            margin-top: 4px;
+            white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .friend-marker-status {
+            font-size: 0.6rem;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .friend-route-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Lista de amigos mini */
+        .friends-list-mini {
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .friend-list-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-bottom: 0.3rem;
+        }
+
+        .friend-list-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .friend-emoji {
+            font-size: 1.2rem;
+        }
+
+        .friend-name {
+            flex: 1;
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        .friend-time {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .friend-time.green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22C55E;
+        }
+
+        .friend-time.yellow {
+            background: rgba(234, 179, 8, 0.2);
+            color: #EAB308;
+        }
+
+        /* Configuración demo */
+        .friends-config-demo {
+            max-width: 500px;
+            margin: 4rem auto;
+            text-align: center;
+        }
+
+        .friends-config-demo h3 {
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .friends-config-mockup {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .config-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .config-option:last-of-type {
+            border-bottom: none;
+        }
+
+        .config-option-text {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .config-emoji {
+            font-size: 1.2rem;
+        }
+
+        .config-toggle {
+            width: 50px;
+            height: 28px;
+            background: #374151;
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .config-toggle.active {
+            background: #22C55E;
+        }
+
+        .config-toggle-knob {
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .config-toggle.active .config-toggle-knob {
+            left: 25px;
+        }
+
+        .config-select {
+            background: #374151;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .config-panic {
+            padding: 1.5rem 1rem 0.5rem;
+        }
+
+        .panic-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .panic-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Disclaimer */
+        .friends-disclaimer {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+        }
+
+        .disclaimer-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .disclaimer-text h4 {
+            color: #22C55E;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .disclaimer-text p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer-text strong {
+            color: white;
+        }
+
+        .disclaimer-small {
+            font-size: 0.85rem !important;
+            color: rgba(255,255,255,0.6) !important;
+        }
+
+        @media (max-width: 768px) {
+            .friends-location-demo {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .friends-disclaimer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ============ FIN UBICACIÓN DE AMIGOS ============ */
+
         /* ============ GAMIFICACIÓN EXPANDIDA ============ */
         .badge-category {
             max-width: 1200px;
@@ -3195,8 +3575,8 @@
         <div class="nav-links">
             <a href="#features">Funciones</a>
             <a href="#tren">🚂 Tren</a>
+            <a href="#amigos-mapa">📍 Amigos</a>
             <a href="#logros">🏆 Logros</a>
-            <a href="#comunidad">Comunidad</a>
             <a href="#donar">🍺 Apoyar</a>
             <a href="#notifyme" class="btn-download">🔔 Avísame</a>
         </div>
@@ -3208,8 +3588,8 @@
         <button class="mobile-menu-close">✕</button>
         <a href="#features">Funciones</a>
         <a href="#tren">🚂 Alertas del Tren</a>
+        <a href="#amigos-mapa">📍 Amigos en el Mapa</a>
         <a href="#logros">🏆 Logros</a>
-        <a href="#comunidad">Comunidad</a>
         <a href="#donar">🍺 Apoyar</a>
         <a href="#notifyme" class="btn-download">🔔 Avísame</a>
     </div>
@@ -3934,6 +4314,187 @@
             <div class="badges-summary-card">
                 <div class="badges-summary-number">∞</div>
                 <div class="badges-summary-text">presumidas</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UBICACIÓN DE AMIGOS - Nueva Sección -->
+    <section class="friends-location" id="amigos-mapa">
+        <div class="section-header">
+            <span class="section-tag">SOCIAL 👥</span>
+            <h2 class="section-title">Ve dónde andan tus compas 📍</h2>
+            <p class="section-subtitle">Comparte tu ubicación con quien TÚ quieras. Tú decides cuándo, con quién, y por cuánto tiempo.</p>
+        </div>
+
+        <div class="friends-location-demo">
+            <!-- Lado izquierdo: explicación -->
+            <div class="friends-location-text">
+                <h3>¿Cómo funciona?</h3>
+                
+                <div class="friends-feature">
+                    <span class="friends-feature-icon">🎯</span>
+                    <div>
+                        <h4>Tú decides con quién</h4>
+                        <p>Comparte con todos tus amigos o solo con los que elijas. Nada está activo por default.</p>
+                    </div>
+                </div>
+
+                <div class="friends-feature">
+                    <span class="friends-feature-icon">🗺️</span>
+                    <div>
+                        <h4>Ve su recorrido</h4>
+                        <p>No solo su ubicación actual, también por dónde han pasado (si ellos lo permiten).</p>
+                    </div>
+                </div>
+
+                <div class="friends-feature">
+                    <span class="friends-feature-icon">⏰</span>
+                    <div>
+                        <h4>Se apaga solo</h4>
+                        <p>Configura que se desactive automáticamente después de unas horas. Por si se te olvida.</p>
+                    </div>
+                </div>
+
+                <div class="friends-feature">
+                    <span class="friends-feature-icon">👻</span>
+                    <div>
+                        <h4>Botón de pánico</h4>
+                        <p>Un tap y desapareces del mapa de todos. Instantáneo.</p>
+                    </div>
+                </div>
+
+                <div class="friends-feature">
+                    <span class="friends-feature-icon">🚌</span>
+                    <div>
+                        <h4>Funciona aunque no vayas en ruta</h4>
+                        <p>Acumula km caminando, en bici, o como sea. Los logros cuentan igual.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lado derecho: mockup del mapa -->
+            <div class="friends-location-visual">
+                <div class="friends-map-mockup">
+                    <!-- Header del mapa -->
+                    <div class="friends-map-header">
+                        <span class="friends-map-status">📍 Compartiendo con 3 amigos</span>
+                        <span class="friends-map-live">● LIVE</span>
+                    </div>
+
+                    <!-- Mapa con amigos -->
+                    <div class="friends-map-area">
+                        <!-- Tu ubicación -->
+                        <div class="friend-marker you" style="top: 50%; left: 50%;">
+                            <div class="friend-marker-pulse"></div>
+                            <div class="friend-marker-icon">😎</div>
+                            <div class="friend-marker-label">Tú</div>
+                        </div>
+
+                        <!-- Amigo 1 - en ruta -->
+                        <div class="friend-marker on-route" style="top: 30%; left: 70%;">
+                            <div class="friend-marker-icon">🚌</div>
+                            <div class="friend-marker-label">@camion_veloz</div>
+                            <div class="friend-marker-status">En Ruta 5</div>
+                        </div>
+
+                        <!-- Amigo 2 - caminando -->
+                        <div class="friend-marker walking" style="top: 65%; left: 25%;">
+                            <div class="friend-marker-icon">🎸</div>
+                            <div class="friend-marker-label">@ruta_master</div>
+                            <div class="friend-marker-status">Caminando</div>
+                        </div>
+
+                        <!-- Amigo 3 - estático -->
+                        <div class="friend-marker stationary" style="top: 75%; left: 80%;">
+                            <div class="friend-marker-icon">💚</div>
+                            <div class="friend-marker-label">@mi_compa</div>
+                            <div class="friend-marker-status">Hace 5 min</div>
+                        </div>
+
+                        <!-- Línea de recorrido de un amigo -->
+                        <svg class="friend-route-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M70,30 Q60,40 55,50 T50,65" stroke="#22C55E" stroke-width="0.5" fill="none" stroke-dasharray="2,1" opacity="0.6"/>
+                        </svg>
+                    </div>
+
+                    <!-- Lista de amigos abajo -->
+                    <div class="friends-list-mini">
+                        <div class="friend-list-item">
+                            <span class="friend-emoji">🚌</span>
+                            <span class="friend-name">@camion_veloz</span>
+                            <span class="friend-time green">2 min</span>
+                        </div>
+                        <div class="friend-list-item">
+                            <span class="friend-emoji">🎸</span>
+                            <span class="friend-name">@ruta_master</span>
+                            <span class="friend-time green">1 min</span>
+                        </div>
+                        <div class="friend-list-item">
+                            <span class="friend-emoji">💚</span>
+                            <span class="friend-name">@mi_compa</span>
+                            <span class="friend-time yellow">5 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuración mockup -->
+        <div class="friends-config-demo">
+            <h3>Control total de tu privacidad 🔒</h3>
+            <div class="friends-config-mockup">
+                <div class="config-option">
+                    <div class="config-option-text">
+                        <span class="config-emoji">📍</span>
+                        <span>Compartir mi ubicación</span>
+                    </div>
+                    <div class="config-toggle active">
+                        <div class="config-toggle-knob"></div>
+                    </div>
+                </div>
+                <div class="config-option">
+                    <div class="config-option-text">
+                        <span class="config-emoji">👥</span>
+                        <span>Con todos mis amigos</span>
+                    </div>
+                    <div class="config-toggle">
+                        <div class="config-toggle-knob"></div>
+                    </div>
+                </div>
+                <div class="config-option">
+                    <div class="config-option-text">
+                        <span class="config-emoji">🗺️</span>
+                        <span>Mostrar mi recorrido</span>
+                    </div>
+                    <div class="config-toggle active">
+                        <div class="config-toggle-knob"></div>
+                    </div>
+                </div>
+                <div class="config-option">
+                    <div class="config-option-text">
+                        <span class="config-emoji">⏰</span>
+                        <span>Auto-apagar después de</span>
+                    </div>
+                    <div class="config-select">8 hrs</div>
+                </div>
+                <div class="config-panic">
+                    <button class="panic-button">👻 DESAPARECER DEL MAPA</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer importante pero sutil -->
+        <div class="friends-disclaimer">
+            <div class="disclaimer-icon">💚</div>
+            <div class="disclaimer-text">
+                <h4>Sobre compartir ubicación</h4>
+                <p>
+                    Esta función es para coordinar con amigos y familia <strong>de confianza</strong>.
+                    Recuerda: una relación sana no necesita vigilancia constante.
+                    Si alguien te presiona para compartir tu ubicación, <strong>está bien decir que no</strong>.
+                </p>
+                <p class="disclaimer-small">Tú decides cuándo y con quién. Siempre. 🤍</p>
             </div>
         </div>
     </section>
