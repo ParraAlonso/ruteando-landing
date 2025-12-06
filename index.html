@@ -178,6 +178,41 @@
             box-shadow: 0 6px 30px rgba(14, 165, 233, 0.5);
         }
 
+        .lang-switch {
+            display: flex;
+            gap: 0.3rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+        }
+
+        .lang-switch.mobile {
+            margin-top: 1rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .lang-btn:hover {
+            color: var(--light);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient);
+            color: white;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -3609,13 +3644,17 @@
     <nav>
         <div class="logo">Ruteando<sup>®</sup> <span>TEPIC</span></div>
         <div class="nav-links">
-            <a href="#features">Funciones</a>
-            <a href="#tren">🚂 Tren</a>
-            <a href="#amigos-mapa">📍 Amigos</a>
-            <a href="#logros">🏆 Logros</a>
-            <a href="#donar">🍺 Apoyar</a>
-            <a href="privacidad.html">Privacidad</a>
-            <a href="#notifyme" class="btn-download">🔔 Avísame</a>
+            <a href="#features" data-i18n="nav.features">Funciones</a>
+            <a href="#tren" data-i18n="nav.train">🚂 Tren</a>
+            <a href="#amigos-mapa" data-i18n="nav.friends">📍 Amigos</a>
+            <a href="#logros" data-i18n="nav.achievements">🏆 Logros</a>
+            <a href="#donar" data-i18n="nav.support">🍺 Apoyar</a>
+            <a href="privacidad.html" data-i18n="nav.privacy">Privacidad</a>
+            <a href="#notifyme" class="btn-download" data-i18n="nav.notify">🔔 Avísame</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
         <button class="mobile-menu-btn">☰</button>
     </nav>
@@ -3623,13 +3662,17 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <button class="mobile-menu-close">✕</button>
-        <a href="#features">Funciones</a>
-        <a href="#tren">🚂 Alertas del Tren</a>
-        <a href="#amigos-mapa">📍 Amigos en el Mapa</a>
-        <a href="#logros">🏆 Logros</a>
-        <a href="#donar">🍺 Apoyar</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="#notifyme" class="btn-download">🔔 Avísame</a>
+        <a href="#features" data-i18n="nav.features">Funciones</a>
+        <a href="#tren" data-i18n="nav.trainFull">🚂 Alertas del Tren</a>
+        <a href="#amigos-mapa" data-i18n="nav.friendsFull">📍 Amigos en el Mapa</a>
+        <a href="#logros" data-i18n="nav.achievements">🏆 Logros</a>
+        <a href="#donar" data-i18n="nav.support">🍺 Apoyar</a>
+        <a href="privacidad.html" data-i18n="nav.privacy">Privacidad</a>
+        <a href="#notifyme" class="btn-download" data-i18n="nav.notify">🔔 Avísame</a>
+        <div class="lang-switch mobile">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -3637,34 +3680,34 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>
-                    Deja de adivinar.<br>
-                    <span class="highlight">Empieza a llegar.</span>
+                    <span data-i18n="hero.title1">Deja de adivinar.</span><br>
+                    <span class="highlight" data-i18n="hero.title2">Empieza a llegar.</span>
                 </h1>
-                <p>
+                <p data-i18n="hero.subtitle">
                     La primera app que te dice <strong>cómo llegar en transporte público</strong> en Tepic.
                 </p>
                 <ul class="hero-features">
-                    <li>🚌 Qué ruta tomar y dónde subirte</li>
-                    <li>📍 Dónde bajarte (sin pasarte, y si tienes que transbordar)</li>
-                    <li>🚂 Alertas del tren en tiempo real</li>
-                    <li>🏆 Desbloquea logros mientras ruteas</li>
-                    <li>🎁 Gana premios REALES por usar la app</li>
-                    <li>😎 Agrega amigos, comparte tu ubicación con quien tú quieras (todo de forma anónima)</li>
-                    <li>💚 <strong>100% GRATIS</strong>, sin anuncios molestos</li>
+                    <li data-i18n="hero.feature1">🚌 Qué ruta tomar y dónde subirte</li>
+                    <li data-i18n="hero.feature2">📍 Dónde bajarte (sin pasarte, y si tienes que transbordar)</li>
+                    <li data-i18n="hero.feature3">🚂 Alertas del tren en tiempo real</li>
+                    <li data-i18n="hero.feature4">🏆 Desbloquea logros mientras ruteas</li>
+                    <li data-i18n="hero.feature5">🎁 Gana premios REALES por usar la app</li>
+                    <li data-i18n="hero.feature6">😎 Agrega amigos, comparte tu ubicación con quien tú quieras (todo de forma anónima)</li>
+                    <li data-i18n="hero.feature7">💚 <strong>100% GRATIS</strong>, sin anuncios molestos</li>
                 </ul>
-                <div class="coming-soon-badge">
+                <div class="coming-soon-badge" data-i18n="hero.badge">
                     🚀 PRÓXIMAMENTE
                 </div>
                 <div class="hero-buttons">
-                    <a href="#notifyme" class="btn-primary">
+                    <a href="#notifyme" class="btn-primary" data-i18n="hero.btnNotify">
                         🔔 Avísame cuando salga
                     </a>
-                    <a href="#como-funciona" class="btn-secondary">
+                    <a href="#como-funciona" class="btn-secondary" data-i18n="hero.btnHow">
                         Ver cómo funciona →
                     </a>
                 </div>
                 <div class="visitors-counter">
-                    👀 <strong id="visitors-count">282</strong> personas ya checaron Ruteando
+                    👀 <strong id="visitors-count">282</strong> <span data-i18n="hero.visitors">personas ya checaron Ruteando</span>
                 </div>
             </div>
             <div class="hero-phone">
@@ -3676,11 +3719,11 @@
                             <div class="phone-search">
                                 <div class="phone-search-item">
                                     <div class="phone-search-dot green"></div>
-                                    <span>Mi ubicación</span>
+                                    <span data-i18n="phone.location">Mi ubicación</span>
                                 </div>
                                 <div class="phone-search-item">
                                     <div class="phone-search-dot red"></div>
-                                    <span>Plaza Fórum</span>
+                                    <span data-i18n="phone.destination">Plaza Fórum</span>
                                 </div>
                             </div>
                             <div class="phone-map">
@@ -3759,40 +3802,40 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-header">
-            <span class="section-tag">FUNCIONES</span>
-            <h2 class="section-title">Lo único que REALMENTE necesitas para moverte en el transporte público.</h2>
-            <p class="section-subtitle">Sin complicaciones, sin adivinar, sin preguntar, sin perderte 3 horas 🤣.</p>
+            <span class="section-tag" data-i18n="features.tag">FUNCIONES</span>
+            <h2 class="section-title" data-i18n="features.title">Lo único que REALMENTE necesitas para moverte en el transporte público.</h2>
+            <p class="section-subtitle" data-i18n="features.subtitle">Sin complicaciones, sin adivinar, sin preguntar, sin perderte 3 horas 🤣.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <span class="feature-icon">🔍</span>
-                <h3 class="feature-title">Busca por nombre</h3>
-                <p class="feature-desc">Escribe "Walmart", "Catedral" o cualquier lugar. La app lo encuentra.</p>
+                <h3 class="feature-title" data-i18n="features.search.title">Busca por nombre</h3>
+                <p class="feature-desc" data-i18n="features.search.desc">Escribe "Walmart", "Catedral" o cualquier lugar. La app lo encuentra.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🚌</span>
-                <h3 class="feature-title">Qué ruta tomar</h3>
-                <p class="feature-desc">Te dice exactamente qué ruta te lleva a tu destino.</p>
+                <h3 class="feature-title" data-i18n="features.route.title">Qué ruta tomar</h3>
+                <p class="feature-desc" data-i18n="features.route.desc">Te dice exactamente qué ruta te lleva a tu destino.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">📍</span>
-                <h3 class="feature-title">Dónde subirte</h3>
-                <p class="feature-desc">Te marca el punto exacto donde pasa el camión cerca de ti.</p>
+                <h3 class="feature-title" data-i18n="features.getOn.title">Dónde subirte</h3>
+                <p class="feature-desc" data-i18n="features.getOn.desc">Te marca el punto exacto donde pasa el camión cerca de ti.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🚪</span>
-                <h3 class="feature-title">Dónde bajarte</h3>
-                <p class="feature-desc">Sabes exactamente cuándo pedir la parada. Sin pasarte.</p>
+                <h3 class="feature-title" data-i18n="features.getOff.title">Dónde bajarte</h3>
+                <p class="feature-desc" data-i18n="features.getOff.desc">Sabes exactamente cuándo pedir la parada. Sin pasarte.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🔄</span>
-                <h3 class="feature-title">Transbordos</h3>
-                <p class="feature-desc">Si necesitas más de un camión, te dice cómo hacer el cambio.</p>
+                <h3 class="feature-title" data-i18n="features.transfer.title">Transbordos</h3>
+                <p class="feature-desc" data-i18n="features.transfer.desc">Si necesitas más de un camión, te dice cómo hacer el cambio.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">⏱️</span>
-                <h3 class="feature-title">Tiempo estimado</h3>
-                <p class="feature-desc">Calcula cuánto vas a tardar para que planees mejor.</p>
+                <h3 class="feature-title" data-i18n="features.time.title">Tiempo estimado</h3>
+                <p class="feature-desc" data-i18n="features.time.desc">Calcula cuánto vas a tardar para que planees mejor.</p>
             </div>
         </div>
     </section>
@@ -3800,30 +3843,30 @@
     <!-- How it Works -->
     <section class="how-it-works" id="como-funciona">
         <div class="section-header">
-            <span class="section-tag">ASÍ DE FÁCIL</span>
-            <h2 class="section-title">¿Cómo funciona?</h2>
-            <p class="section-subtitle">3 pasos y listo. Sin cotorreos.</p>
+            <span class="section-tag" data-i18n="how.tag">ASÍ DE FÁCIL</span>
+            <h2 class="section-title" data-i18n="how.title">¿Cómo funciona?</h2>
+            <p class="section-subtitle" data-i18n="how.subtitle">3 pasos y listo. Sin cotorreos.</p>
         </div>
         <div class="steps-container">
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3>Pon tu destino</h3>
-                    <p>Escribe a dónde quieres ir. Puede ser un lugar, una dirección o un punto en el mapa.</p>
+                    <h3 data-i18n="how.step1.title">Pon tu destino</h3>
+                    <p data-i18n="how.step1.desc">Escribe a dónde quieres ir. Puede ser un lugar, una dirección o un punto en el mapa.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3>Ve tus opciones</h3>
-                    <p>La app te muestra las rutas que te llevan, con tiempo estimado y transbordos si los hay.</p>
+                    <h3 data-i18n="how.step2.title">Ve tus opciones</h3>
+                    <p data-i18n="how.step2.desc">La app te muestra las rutas que te llevan, con tiempo estimado y transbordos si los hay.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3>Sigue las instrucciones</h3>
-                    <p>Te dice dónde subirte, cuándo bajarte y cómo llegar caminando. Fácil.</p>
+                    <h3 data-i18n="how.step3.title">Sigue las instrucciones</h3>
+                    <p data-i18n="how.step3.desc">Te dice dónde subirte, cuándo bajarte y cómo llegar caminando. Fácil.</p>
                 </div>
             </div>
         </div>
@@ -3833,47 +3876,47 @@
     <!-- Comparison - LA DIFERENCIA -->
     <section class="comparison">
         <div class="section-header">
-            <span class="section-tag">LA NETA</span>
-            <h2 class="section-title">Otras apps vs Ruteando®</h2>
+            <span class="section-tag" data-i18n="compare.tag">LA NETA</span>
+            <h2 class="section-title" data-i18n="compare.title">Otras apps vs Ruteando®</h2>
         </div>
         <div class="comparison-grid">
             <div class="comparison-card bad">
-                <div class="comparison-header">
+                <div class="comparison-header" data-i18n="compare.before">
                     ❌ Otras apps
                 </div>
                 <ul class="comparison-list">
-                    <li>🗺️ "Aquí están las rutas, bro, hazte bolas"</li>
-                    <li>🤷 Te muestran rutas (rayitas de colores) pero no cuál tomar</li>
-                    <li>😵 Cero instrucciones de dónde bajar</li>
-                    <li>🔄 Transbordos? Ni de pedo jaja</li>
-                    <li>🚂 ¿Alertas del tren?, pfff</li>
-                    <li>🚌 ¿Rutas en vivo?... sííí chuy</li>
-                    <li>📍 Mapas bonitos pero <s>inútiles</s> no usables</li>
-                    <li>🌐 "Apps" que solo abren una página web... genios</li>
-                    <li>💀 Abandonadas o "en mantenimiento"</li>
-                    <li>📱 Tumbadas de PlayStore y AppStore</li>
+                    <li data-i18n="compare.before1">🗺️ "Aquí están las rutas, bro, hazte bolas"</li>
+                    <li data-i18n="compare.before2">🤷 Te muestran rutas (rayitas de colores) pero no cuál tomar</li>
+                    <li data-i18n="compare.before3">😵 Cero instrucciones de dónde bajar</li>
+                    <li data-i18n="compare.before4">🔄 Transbordos? Ni de pedo jaja</li>
+                    <li data-i18n="compare.before5">🚂 ¿Alertas del tren?, pfff</li>
+                    <li data-i18n="compare.before6">🚌 ¿Rutas en vivo?... sííí chuy</li>
+                    <li data-i18n="compare.before7">📍 Mapas bonitos pero no usables</li>
+                    <li data-i18n="compare.before8">🌐 "Apps" que solo abren una página web... genios</li>
+                    <li data-i18n="compare.before9">💀 Abandonadas o "en mantenimiento"</li>
+                    <li data-i18n="compare.before10">📱 Tumbadas de PlayStore y AppStore</li>
                 </ul>
             </div>
             <div class="comparison-card good">
-                <div class="comparison-header">
+                <div class="comparison-header" data-i18n="compare.after">
                     ✅ Ruteando®
                 </div>
                 <ul class="comparison-list">
-                    <li>🎯 "Toma el Progreso 1, bájate en 15 min"</li>
-                    <li>📍 Te dice dónde subirte</li>
-                    <li>🔔 Te avisa cuándo pedir la parada</li>
-                    <li>🗺️ Transbordos calculados</li>
-                    <li>⚡ Instrucciones paso a paso con transbordos y todo el show</li>
-                    <li>🚂 Alertas del tren, entre todos nos salvamos de quedarse atorados en las vías</li>
-                    <li>🚌 Rutas en vivo, gracias a tí 🙏</li>
-                    <li>⭐ Desbloquea logros por usar la app</li>
-                    <li>🔄 Actualizaciones y soporte activo</li>
-                    <li>📱 App nativa, real, bien hecha, para Android e iOS (tiendas oficiales)</li>
+                    <li data-i18n="compare.after1">🎯 "Toma el Progreso 1, bájate en 15 min"</li>
+                    <li data-i18n="compare.after2">📍 Te dice dónde subirte</li>
+                    <li data-i18n="compare.after3">🔔 Te avisa cuándo pedir la parada</li>
+                    <li data-i18n="compare.after4">🗺️ Transbordos calculados</li>
+                    <li data-i18n="compare.after5">⚡ Instrucciones paso a paso con transbordos y todo el show</li>
+                    <li data-i18n="compare.after6">🚂 Alertas del tren, entre todos nos salvamos de quedarse atorados en las vías</li>
+                    <li data-i18n="compare.after7">🚌 Rutas en vivo, gracias a tí 🙏</li>
+                    <li data-i18n="compare.after8">⭐ Desbloquea logros por usar la app</li>
+                    <li data-i18n="compare.after9">🔄 Actualizaciones y soporte activo</li>
+                    <li data-i18n="compare.after10">📱 App nativa, real, bien hecha, para Android e iOS (tiendas oficiales)</li>
                 </ul>
             </div>
         </div>
         <p class="comparison-note">
-            <strong>Ruteando® es diferente.</strong>
+            <strong data-i18n="compare.note">Ruteando® es diferente.</strong>
         </p>
     </section>
 
@@ -3881,9 +3924,9 @@
     <!-- Disponibilidad - Android e iOS -->
     <section class="availability" id="disponibilidad">
         <div class="section-header">
-            <span class="section-tag">DISPONIBILIDAD</span>
-            <h2 class="section-title">Android e iOS. Para todos.</h2>
-            <p class="section-subtitle">Porque no importa qué teléfono tengas, aquí todos rutearemos 🤘.</p>
+            <span class="section-tag" data-i18n="avail.tag">DISPONIBILIDAD</span>
+            <h2 class="section-title" data-i18n="avail.title">Android e iOS. Para todos.</h2>
+            <p class="section-subtitle" data-i18n="avail.subtitle">Porque no importa qué teléfono tengas, aquí todos rutearemos 🤘.</p>
         </div>
 
         <div class="platforms-container">
@@ -3893,7 +3936,7 @@
                 <p>Google Play Store</p>
                 <div class="platform-status ready">
                     <span class="status-dot"></span>
-                    App lista
+                    <span data-i18n="avail.ready">App lista</span>
                 </div>
             </div>
             <div class="platform-card">
@@ -3902,7 +3945,7 @@
                 <p>App Store</p>
                 <div class="platform-status coming">
                     <span class="status-dot"></span>
-                    Próximamente
+                    <span data-i18n="avail.coming">Próximamente</span>
                 </div>
             </div>
         </div>
@@ -3911,28 +3954,28 @@
             <div class="timeline-item done">
                 <div class="timeline-icon">✅</div>
                 <div class="timeline-content">
-                    <h4>Desarrollo</h4>
-                    <p>App terminada y funcional</p>
+                    <h4 data-i18n="avail.dev.title">Desarrollo</h4>
+                    <p data-i18n="avail.dev.desc">App terminada y funcional</p>
                 </div>
             </div>
             <div class="timeline-item current">
                 <div class="timeline-icon">⏳</div>
                 <div class="timeline-content">
-                    <h4>En validación de Google y Apple</h4>
-                    <p>Proceso de revisión de las tiendas (puede tardar unos días)</p>
+                    <h4 data-i18n="avail.review.title">En validación de Google y Apple</h4>
+                    <p data-i18n="avail.review.desc">Proceso de revisión de las tiendas (puede tardar unos días)</p>
                 </div>
             </div>
             <div class="timeline-item pending">
                 <div class="timeline-icon">🤘</div>
                 <div class="timeline-content">
-                    <h4>¡A rutear!</h4>
-                    <p>Disponible para descargar</p>
+                    <h4 data-i18n="avail.launch.title">¡A rutear!</h4>
+                    <p data-i18n="avail.launch.desc">Disponible para descargar</p>
                 </div>
             </div>
         </div>
 
         <p class="availability-note">
-            <strong>Una vez que pase la validación y puedas descargarla, te avisaré de volada.</strong>
+            <strong data-i18n="avail.note">Una vez que pase la validación y puedas descargarla, te avisaré de volada.</strong>
         </p>
     </section>
 
@@ -3941,9 +3984,9 @@
     <section class="live-tracking" id="tracking">
         <div class="live-tracking-content">
             <div class="live-tracking-text">
-                <div class="future-badge">🔮 LO QUE SE ESTÁ HORNEANDO</div>
-                <h2>Rutas en vivo.<br><span class="orange">Gracias a ti.</span></h2>
-                <p>
+                <div class="future-badge" data-i18n="live.badge">🔮 LO QUE SE ESTÁ HORNEANDO</div>
+                <h2 data-i18n="live.title">Rutas en vivo.<br><span class="orange">Gracias a ti.</span></h2>
+                <p data-i18n="live.desc">
                     ¿Y si pudieras ver dónde va el camión/combi en tiempo real? Sin depender de que los transportes tengan GPS.
                     <strong><br>Nosotros podemos ser el GPS 🤝</strong>
                 </p>
@@ -3952,22 +3995,22 @@
                     <div class="tracking-feature">
                         <span class="tracking-feature-icon">📍</span>
                         <div class="tracking-feature-text">
-                            <h4>"Empezar a rutear 🤘"</h4>
-                            <p>Cuando te subes al camión/combi, presionas un botón y compartes tu trayecto de forma anónima.</p>
+                            <h4 data-i18n="live.feat1.title">"Empezar a rutear 🤘"</h4>
+                            <p data-i18n="live.feat1.desc">Cuando te subes al camión/combi, presionas un botón y compartes tu trayecto de forma anónima.</p>
                         </div>
                     </div>
                     <div class="tracking-feature">
                         <span class="tracking-feature-icon">👥</span>
                         <div class="tracking-feature-text">
-                            <h4>Todos ayudan</h4>
-                            <p>Entre más personas usen la app, más preciso es el tracking. La comunidad hace la chamba 🙏.</p>
+                            <h4 data-i18n="live.feat2.title">Todos ayudan</h4>
+                            <p data-i18n="live.feat2.desc">Entre más personas usen la app, más preciso es el tracking. La comunidad hace la chamba 🙏.</p>
                         </div>
                     </div>
                     <div class="tracking-feature">
                         <span class="tracking-feature-icon">🏆</span>
                         <div class="tracking-feature-text">
-                            <h4>Gana reconocimiento</h4>
-                            <p>Acumula kilómetros, desbloquea logros y presume cuánto has aportado a la comunidad 😎.</p>
+                            <h4 data-i18n="live.feat3.title">Gana reconocimiento</h4>
+                            <p data-i18n="live.feat3.desc">Acumula kilómetros, desbloquea logros y presume cuánto has aportado a la comunidad 😎.</p>
                         </div>
                     </div>
                 </div>
@@ -3978,12 +4021,12 @@
                     <div class="tracking-header">
                         <div class="icon">🚌</div>
                         <div class="info">
-                            <h3>Ruta México</h3>
-                            <span>Última actualización hace 2 min</span>
+                            <h3 data-i18n="live.mock.route">Ruta México</h3>
+                            <span data-i18n="live.mock.update">Última actualización hace 2 min</span>
                         </div>
                         <div class="tracking-status">
                             <span class="dot"></span>
-                            EN VIVO
+                            <span data-i18n="live.mock.live">EN VIVO</span>
                         </div>
                     </div>
 
@@ -3996,22 +4039,22 @@
                                 <div class="avatar">👤</div>
                                 <div class="avatar">👤</div>
                             </div>
-                            <span>3 compartiendo</span>
+                            <span data-i18n="live.mock.sharing">3 compartiendo</span>
                         </div>
                     </div>
 
                     <div class="tracking-stats">
                         <div class="tracking-stat">
                             <div class="value">847</div>
-                            <div class="label">km compartidos hoy</div>
+                            <div class="label" data-i18n="live.stat.km">km compartidos hoy</div>
                         </div>
                         <div class="tracking-stat">
                             <div class="value">156</div>
-                            <div class="label">usuarios activos</div>
+                            <div class="label" data-i18n="live.stat.users">usuarios activos</div>
                         </div>
                         <div class="tracking-stat">
                             <div class="value">12</div>
-                            <div class="label">rutas en vivo</div>
+                            <div class="label" data-i18n="live.stat.routes">rutas en vivo</div>
                         </div>
                     </div>
                 </div>
@@ -4023,9 +4066,9 @@
     <!-- Comunidad Activa - Mapa con usuarios -->
     <section class="active-community">
         <div class="section-header">
-            <span class="section-tag">EL PODER DE TODOS</span>
-            <h2 class="section-title">Tepic, conectado.</h2>
-            <p class="section-subtitle">Cada punto es alguien como tú, moviéndose por la ciudad y ayudando a otros a llegar, sin querer queriendo.</p>
+            <span class="section-tag" data-i18n="active.tag">EL PODER DE TODOS</span>
+            <h2 class="section-title" data-i18n="active.title">Tepic, conectado.</h2>
+            <p class="section-subtitle" data-i18n="active.subtitle">Cada punto es alguien como tú, moviéndose por la ciudad y ayudando a otros a llegar, sin querer queriendo.</p>
         </div>
 
         <div class="community-map-container">
@@ -4095,20 +4138,20 @@
             <div class="community-stats-live">
                 <div class="stat-live">
                     <span class="stat-number" id="live-users">247</span>
-                    <span class="stat-label">personas ruteando ahora</span>
+                    <span class="stat-label" data-i18n="active.stat1">personas ruteando ahora</span>
                 </div>
                 <div class="stat-live">
                     <span class="stat-number">12</span>
-                    <span class="stat-label">rutas activas</span>
+                    <span class="stat-label" data-i18n="active.stat2">rutas activas</span>
                 </div>
                 <div class="stat-live">
                     <span class="stat-number">1,847</span>
-                    <span class="stat-label">km compartidos hoy</span>
+                    <span class="stat-label" data-i18n="active.stat3">km compartidos hoy</span>
                 </div>
             </div>
         </div>
 
-        <p class="community-quote">
+        <p class="community-quote" data-i18n="active.quote">
             ¿GPS en los camiones?<br>
             <strong>Nosotros podemos ser el GPS</strong>
         </p>
@@ -4118,9 +4161,9 @@
     <!-- Gamificación COMPLETA -->
     <section class="gamification" id="logros">
         <div class="section-header">
-            <span class="section-tag">RECONOCIMIENTO</span>
-            <h2 class="section-title">Desbloquea logros y presume 💎</h2>
-            <p class="section-subtitle">4 categorías de logros. Entre más aportes, más reconocimiento. Tu perfil lo dice todo 😎.</p>
+            <span class="section-tag" data-i18n="achievements.tag">RECONOCIMIENTO</span>
+            <h2 class="section-title" data-i18n="achievements.title">Desbloquea logros y presume 💎</h2>
+            <p class="section-subtitle" data-i18n="achievements.subtitle">4 categorías de logros. Entre más aportes, más reconocimiento. Tu perfil lo dice todo 😎.</p>
         </div>
 
         <!-- Categoría 1: Por Rutear (Tracking) -->
@@ -4839,8 +4882,8 @@
     <section class="community" id="comunidad">
         <div class="community-box">
             <div class="community-emoji">🤝</div>
-            <h2 class="community-title">Esto no solo será una app más (eso espero).<br>Será un esfuerzo de todos.</h2>
-            <p class="community-text">
+            <h2 class="community-title" data-i18n="community.title">Esto no solo será una app más (eso espero).<br>Será un esfuerzo de todos.</h2>
+            <p class="community-text" data-i18n="community.text1">
                 Ruteando® será <strong>100% gratis</strong>. No hay empresa detrás, no hay inversionistas, no hay publicidad molesta.
                 Solo un wey que quiere que moverse en la ciudad sea menos complicado. <br><small>(Sí, nomás yo, alguien que una vez se perdió macizo por no saber qué ruta agarrar 🤣)</small>
                 <br><br>
@@ -4848,9 +4891,9 @@
                 Nada me cuesta venderla al mejor postor. Pero quiero que sea de todos, para todos.
             </p>
             <div class="community-highlight">
-                <p>Si te late la idea, compártela. Paro 💚</p>
+                <p data-i18n="community.highlight">Si te late la idea, compártela. Paro 💚</p>
             </div>
-            <p class="community-text" style="font-size: 1rem; margin-bottom: 0;">
+            <p class="community-text" style="font-size: 1rem; margin-bottom: 0;" data-i18n="community.text3">
                 Entre más personas la usemos, mejor funciona para todos. Especialmente el tracking en vivo que depende 100% de los ruteros, ruteras y ruteres 😎.
             </p>
         </div>
@@ -4859,13 +4902,13 @@
     <!-- Compartir -->
     <section class="share-section">
         <div class="share-box">
-            <h3>📢 Comparte Ruteando®</h3>
-            <p>Tira paro 🙏. Ayúdame a que más personas conozcan la app que está por llegar. Cada compartida cuenta.</p>
+            <h3 data-i18n="share.title">📢 Comparte Ruteando®</h3>
+            <p data-i18n="share.text">Tira paro 🙏. Ayúdame a que más personas conozcan la app que está por llegar. Cada compartida cuenta.</p>
             <div class="share-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ruteando.mx" target="_blank" class="share-btn facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ruteando.mx" target="_blank" class="share-btn facebook" data-i18n="share.facebook">
                     📘 Compartir en Facebook
                 </a>
-                <button class="share-btn copy" onclick="copyLink()">
+                <button class="share-btn copy" onclick="copyLink()" data-i18n="share.copy">
                     🔗 Copiar enlace
                 </button>
             </div>
@@ -4876,28 +4919,28 @@
     <section class="cta" id="notifyme">
         <div class="cta-box">
             <div class="cta-content">
-                <div class="launch-badge">🚀 LANZAMIENTO YA MERITO</div>
-                <h2>Sé de los primeros en tenerla</h2>
-                <p>Deja tu correo y te enviaré una notificación cuando esté disponible. Cero spam, neta, es sólo para que sepas que ya puedes rutear 😉.</p>
+                <div class="launch-badge" data-i18n="cta.badge">🚀 LANZAMIENTO YA MERITO</div>
+                <h2 data-i18n="cta.title">Sé de los primeros en tenerla</h2>
+                <p data-i18n="cta.text">Deja tu correo y te enviaré una notificación cuando esté disponible. Cero spam, neta, es sólo para que sepas que ya puedes rutear 😉.</p>
                 <form class="notify-form" id="notify-form">
                     <div class="platform-selector">
                         <input type="radio" name="platform" value="android" id="platform-android" class="platform-option" checked>
-                        <label for="platform-android">
+                        <label for="platform-android" data-i18n="cta.platform.android">
                             <span class="platform-emoji">🤖</span> Android
                         </label>
                         <input type="radio" name="platform" value="ios" id="platform-ios" class="platform-option">
-                        <label for="platform-ios">
+                        <label for="platform-ios" data-i18n="cta.platform.ios">
                             <span class="platform-emoji">🍎</span> iOS
                         </label>
                     </div>
-                    <input type="email" id="email-input" placeholder="tu@correo.com" class="notify-input" required>
-                    <button type="submit" class="btn-white">
+                    <input type="email" id="email-input" placeholder="tu@correo.com" class="notify-input" data-i18n-placeholder="cta.placeholder" required>
+                    <button type="submit" class="btn-white" data-i18n="cta.button">
                         🔔 Avísame
                     </button>
                 </form>
                 <div id="form-message" style="margin-top: 1rem; display: none;"></div>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
-                    <span class="early-count">🔥 Ya hay <strong id="subscriber-count">0</strong> personas esperando</span>
+                    <span class="early-count">🔥 <span data-i18n="cta.waitingPre">Ya hay</span> <strong id="subscriber-count">0</strong> <span data-i18n="cta.waiting">personas esperando</span></span>
                 </p>
             </div>
         </div>
@@ -4906,9 +4949,9 @@
 
     <section class="geo-notebook">
         <div class="section-header">
-            <span class="section-tag">PRIMERO A MANO</span>
-            <h2 class="section-title">El trabajo que <span>nadie hizo</span></h2>
-            <p class="section-subtitle">Alguien tenía que sentarse, matemáticamente hablando, a calcular distancias, determinar intersecciones, armar cada conexión y sobre todo armar una app funcional. Ese alguien un día se perdió en las rutas 🤣.</p>
+            <span class="section-tag" data-i18n="notebook.tag">PRIMERO A MANO</span>
+            <h2 class="section-title" data-i18n="notebook.title">El trabajo que <span>nadie hizo</span></h2>
+            <p class="section-subtitle" data-i18n="notebook.subtitle">Alguien tenía que sentarse, matemáticamente hablando, a calcular distancias, determinar intersecciones, armar cada conexión y sobre todo armar una app funcional. Ese alguien un día se perdió en las rutas 🤣.</p>
         </div>
 
         <div class="notebook-container">
@@ -4917,37 +4960,37 @@
                 <div class="notebook-lines"></div>
 
                 <div class="notebook-content">
-                    <div class="notebook-heading notebook-line">¿Cómo calculo una ruta? 😖😵‍💫</div>
+                    <div class="notebook-heading notebook-line" data-i18n="notebook.heading">¿Cómo calculo una ruta? 😖😵‍💫</div>
 
                     <div class="notebook-line">
                         <span class="notebook-circle">1</span>
-                        ¿Dónde estoy?
+                        <span data-i18n="notebook.step1">¿Dónde estoy?</span>
                         <span class="notebook-highlight">21.5041°, -104.8946°</span>
                     </div>
 
-                    <div class="notebook-line">
+                    <div class="notebook-line" data-i18n="notebook.step2">
                         <span class="notebook-circle">2</span>
                         ¿A dónde voy? → Ciudad Universitaria
                     </div>
 
-                    <div class="notebook-line">
+                    <div class="notebook-line" data-i18n="notebook.step3">
                         <span class="notebook-circle">3</span>
                         Buscar rutas que pasen cerca...
                     </div>
 
-                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;" data-i18n="notebook.route7">
                         → Ruta 7: ❌ no pasa por destino
                     </div>
 
-                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;" data-i18n="notebook.route12a">
                         → Ruta 12: ✓ pasa a 127m del origen
                     </div>
 
-                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;">
+                    <div class="notebook-line" style="padding-left: 40px; font-size: 1.1rem; color: #666;" data-i18n="notebook.route12b">
                         → Ruta 12: ✓ pasa a 89m del destino
                     </div>
 
-                    <div class="notebook-line">
+                    <div class="notebook-line" data-i18n="notebook.step4">
                         <span class="notebook-circle">4</span>
                         Calcular distancia total:
                     </div>
@@ -4962,14 +5005,14 @@
 
                     <div class="notebook-line">
                         <span class="notebook-circle">5</span>
-                        Tiempo: 3.2km ÷ 18km/h =
+                        <span data-i18n="notebook.step5">Tiempo: 3.2km ÷ 18km/h =</span>
                         <span class="notebook-highlight">~18 minutos</span>
                     </div>
 
                     <div class="notebook-line">&nbsp;</div>
 
                     <div class="notebook-line">
-                        <div class="notebook-result">
+                        <div class="notebook-result" data-i18n="notebook.result">
                             ✅ Resultado: Ruta 12, sin transbordos! 🤯😎
                         </div>
                     </div>
@@ -4986,9 +5029,9 @@
     <section class="donations" id="donar">
         <div class="donations-box">
             <div class="donations-emoji">🍺</div>
-            <h2 class="donations-title">¿Quieres apoyar Ruteando®?</h2>
-            <p class="donations-text">
-                Ruteando® es y será <strong>100% gratis</strong>. Si te late lo que estoy haciendo 
+            <h2 class="donations-title" data-i18n="donate.title">¿Quieres apoyar Ruteando®?</h2>
+            <p class="donations-text" data-i18n="donate.text">
+                Ruteando® es y será <strong>100% gratis</strong>. Si te late lo que estoy haciendo
                 y quieres picharte un chesco o una cheve, aquí puedes. Todo se usará para
                 los gastos (servidores, dominio, cuota de Play Store, cuota de AppStore) para mantener la app funcionando sin costo para la banda.
             </p>
@@ -4997,12 +5040,12 @@
                     💳 PayPal
                 </a>
             </div>
-            <p class="donations-note">
+            <p class="donations-note" data-i18n="donate.note">
                 Digo, no es obligatorio, pero se agradece un chingo 🙏
             </p>
             <p class="donations-note" style="margin-top: 10px">
-                Si eres una empresa o alguien con varo y quieres donar para que aparezca tu nombre en la app como patrocinador oficial de la champions, tírame un mensaje y me comunico contigo, sin compromiso.
-                <br><button id="tirar-mensaje">📨 Aquí mero</button>
+                <span data-i18n="donate.sponsor">Si eres una empresa o alguien con varo y quieres donar para que aparezca tu nombre en la app como patrocinador oficial de la champions, tírame un mensaje y me comunico contigo, sin compromiso.</span>
+                <br><button id="tirar-mensaje" data-i18n="donate.contact">📨 Aquí mero</button>
             </p>
         </div>
     </section>
@@ -5011,27 +5054,27 @@
     <div class="modal-overlay" id="modal-contacto">
         <div class="modal">
             <button class="modal-close" id="modal-close">&times;</button>
-            <h3 class="modal-title">Déjame tu mensaje aquí</h3>
-            <p class="modal-subtitle">Cuéntame tu propuesta y me pongo en contacto contigo.</p>
+            <h3 class="modal-title" data-i18n="modal.title">Déjame tu mensaje aquí</h3>
+            <p class="modal-subtitle" data-i18n="modal.subtitle">Cuéntame tu propuesta y me pongo en contacto contigo.</p>
 
             <form id="contact-form">
                 <div class="form-group">
-                    <label for="contact-nombre">Tu nombre / El de tu empresa</label>
-                    <input type="text" min="5" id="contact-nombre" name="nombre" placeholder="Ej: Juan Pérez / Tacos El Güero" required>
+                    <label for="contact-nombre" data-i18n="modal.name">Tu nombre / El de tu empresa</label>
+                    <input type="text" min="5" id="contact-nombre" name="nombre" placeholder="Ej: Juan Pérez / Tacos El Güero" data-i18n-placeholder="modal.namePlaceholder" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="contact-telefono">Teléfono</label>
-                    <input type="tel" id="contact-telefono" name="telefono" placeholder="Ej: 311 123 4567" required>
+                    <label for="contact-telefono" data-i18n="modal.phone">Teléfono</label>
+                    <input type="tel" id="contact-telefono" name="telefono" placeholder="Ej: 311 123 4567" data-i18n-placeholder="modal.phonePlaceholder" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="contact-mensaje">Mensaje</label>
-                    <textarea id="contact-mensaje" name="mensaje" placeholder="Cuéntame tu idea o propuesta..." maxlength="300" required></textarea>
+                    <label for="contact-mensaje" data-i18n="modal.message">Mensaje</label>
+                    <textarea id="contact-mensaje" name="mensaje" placeholder="Cuéntame tu idea o propuesta..." data-i18n-placeholder="modal.messagePlaceholder" maxlength="300" required></textarea>
                     <div class="char-count"><span id="char-current">0</span>/300</div>
                 </div>
 
-                <button type="submit" class="btn-enviar">🚀 Enviar mensaje</button>
+                <button type="submit" class="btn-enviar" data-i18n="modal.send">🚀 Enviar mensaje</button>
             </form>
 
             <div id="modal-msg" class="modal-message" style="display: none;"></div>
@@ -5041,7 +5084,7 @@
     <!-- Footer -->
     <footer>
         <span class="footer-logo">Ruteando®</span>
-        <p class="footer-text" style="font-size: 1.1rem;">
+        <p class="footer-text" style="font-size: 1.1rem;" data-i18n="footer.madeWith">
             Hecho con <span class="footer-heart">❤️</span> por un Kora <small>(Nayarita)</small> en Tepic, Nayarit
         </p>
         <p class="footer-text" style="opacity: 0.6; font-size: 0.85rem; margin-top: 0.3rem;">
@@ -5049,14 +5092,15 @@
         </p>
         <div class="footer-links">
 <!--            <a href="mailto:">Contacto</a>-->
-            <a href="privacidad.html">Privacidad</a>
+            <a href="privacidad.html" data-i18n="nav.privacy">Privacidad</a>
             <a href="https://www.facebook.com/ruteando.tpc" target="_blank">Facebook</a>
         </div>
-        <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">
+        <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;" data-i18n="footer.rights">
             © 2025 Ruteando®. Todos los derechos reservados.
         </p>
     </footer>
 
+    <script src="i18n.js"></script>
     <script>
         // Mobile Menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -5126,10 +5170,11 @@
         }
 
         async function saveSubscriber(email) {
+            const platform = document.querySelector('input[name="platform"]:checked')?.value || 'android';
             const response = await fetch('subscribe.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email })
+                body: JSON.stringify({ email: email, platform: platform, lang: currentLang })
             });
             return await response.json();
         }
@@ -5149,31 +5194,31 @@
             const submitBtn = this.querySelector('button');
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '⏳ Guardando...';
+            submitBtn.innerHTML = t('msg.saving');
 
             try {
                 const result = await saveSubscriber(email);
 
                 if (result.exists) {
-                    showMessage('😎 ¡Ya me habías dejado tu correo! Tranquilo, te aviso en cuanto esté lista.', 'info');
+                    showMessage(result.message || t('msg.alreadyRegistered'), 'info');
                 } else if (result.success) {
                     earlyCount.textContent = result.count;
-                    showMessage('🎉 ¡Listo! Te aviso cuando esté disponible. ¡Gracias por el apoyo!', 'success');
-                    submitBtn.innerHTML = '✅ ¡Registrado!';
+                    showMessage(result.message || t('msg.success'), 'success');
+                    submitBtn.innerHTML = t('msg.registered');
                     setTimeout(() => {
-                        submitBtn.innerHTML = '🔔 Avísame';
+                        submitBtn.innerHTML = t('cta.button');
                     }, 2000);
                 } else {
-                    showMessage('❌ Hubo un error, intenta de nuevo.', 'error');
+                    showMessage(t('msg.error'), 'error');
                 }
             } catch (error) {
-                showMessage('❌ Error de conexión, intenta de nuevo.', 'error');
+                showMessage(t('msg.connectionError'), 'error');
             }
 
             emailInput.value = '';
             submitBtn.disabled = false;
-            if (submitBtn.innerHTML === '⏳ Guardando...') {
-                submitBtn.innerHTML = '🔔 Avísame';
+            if (submitBtn.innerHTML === t('msg.saving')) {
+                submitBtn.innerHTML = t('cta.button');
             }
         });
 
@@ -5265,36 +5310,36 @@
 
 
             if (!nombre || !telefono || !mensaje) {
-                showModalMessage('Por favor llena todos los campos', 'error');
+                showModalMessage(t('msg.fillFields'), 'error');
                 return;
             }
 
             if (nombre.length<5) {
-                showModalMessage('Pon tu nombre bien porfa', 'error');
+                showModalMessage(currentLang === 'en' ? 'Please enter your full name' : 'Pon tu nombre bien porfa', 'error');
                 document.getElementById('contact-nombre').focus();
                 return;
             }
 
             if (!parseInt(telefono) || telefono.length<10 || telefono.length>10) {
-                showModalMessage('Pon tu teléfono a 10 digitos please (sólo números)', 'error');
+                showModalMessage(currentLang === 'en' ? 'Enter your 10-digit phone number (numbers only)' : 'Pon tu teléfono a 10 digitos please (sólo números)', 'error');
                 document.getElementById('contact-telefono').focus();
                 return;
             }
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '⏳ Enviando...';
+            submitBtn.innerHTML = t('msg.sending');
 
             try {
                 const response = await fetch('mensaje.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nombre, telefono, mensaje })
+                    body: JSON.stringify({ nombre, telefono, mensaje, lang: currentLang })
                 });
 
                 const result = await response.json();
 
                 if (result.success) {
-                    showModalMessage('🎉 ¡Muchas gracias! Me comunico contigo en cuanto pueda 😀', 'success');
+                    showModalMessage(result.message || t('msg.contactSuccess'), 'success');
                     contactForm.reset();
                     charCurrent.textContent = '0';
                     charCountDiv.classList.remove('warning', 'limit');
@@ -5304,14 +5349,14 @@
                         modalMsg.style.display = 'none';
                     }, 3000);
                 } else {
-                    showModalMessage(result.error || '❌ Hubo un error, intenta de nuevo', 'error');
+                    showModalMessage(result.error || t('msg.error'), 'error');
                 }
             } catch (error) {
-                showModalMessage('❌ Error de conexión, intenta de nuevo', 'error');
+                showModalMessage(t('msg.connectionError'), 'error');
             }
 
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '🚀 Enviar mensaje';
+            submitBtn.innerHTML = t('modal.send');
         });
 
         function showModalMessage(text, type) {

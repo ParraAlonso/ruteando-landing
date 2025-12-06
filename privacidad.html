@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacidad - Ruteando®</title>
     <meta name="description" content="Política de privacidad y origen de datos de Ruteando, la app de transporte público de Tepic.">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary: #0EA5E9;
@@ -61,6 +61,12 @@
             text-decoration: none;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
         .back-link {
             color: var(--gray);
             text-decoration: none;
@@ -70,6 +76,36 @@
 
         .back-link:hover {
             color: var(--light);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.3rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .lang-btn:hover {
+            color: var(--light);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient);
+            color: white;
         }
 
         /* Content */
@@ -179,22 +215,36 @@
         .footer-heart {
             color: #EF4444;
         }
+
+        /* Language content */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">Ruteando<sup>®</sup></a>
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+        <div class="nav-right">
+            <a href="index.html" class="back-link" id="back-link">← Volver al inicio</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Content -->
-    <div class="content">
+    <!-- Content ES -->
+    <div class="content lang-content active" id="content-es">
         <h1>Privacidad y Datos</h1>
         <p class="subtitle">Última actualización: Diciembre 2025</p>
 
         <h2>🔒 Política de Privacidad</h2>
-        
+
         <p>Ruteando® respeta tu privacidad. Esta app fue creada para ayudar a los tepicenses a moverse mejor, NO para recopilar tus datos.</p>
 
         <h3>¿Qué datos recopilo?</h3>
@@ -216,7 +266,7 @@
         </div>
 
         <h2>📊 Origen de los Datos de Rutas</h2>
-        
+
         <p>Los datos de las rutas de transporte público utilizados en Ruteando® provienen de fuentes públicas y abiertas:</p>
 
         <h3>Fuente Principal</h3>
@@ -243,7 +293,7 @@
         </ul>
 
         <h2>⚖️ Fundamento Legal</h2>
-        
+
         <p>El uso de estos datos está amparado por:</p>
         <ul>
             <li><strong>Ley General de Transparencia y Acceso a la Información Pública (Art. 3):</strong> Toda información en posesión de cualquier autoridad es pública.</li>
@@ -255,7 +305,7 @@
         </div>
 
         <h2>📝 Compromiso</h2>
-        
+
         <p>Como desarrollador de Ruteando®, me comprometo a:</p>
         <ul>
             <li>✅ Mantener la app gratuita y accesible (siempre y cuando pueda cubrir los gastos mencionados en la página principal)</li>
@@ -264,27 +314,146 @@
             <li>✅ Respetar tu privacidad siempre</li>
         </ul>
 
-<!--        <h2>📬 Contacto</h2>-->
-<!--        -->
-<!--        <p>Si tienes dudas sobre esta política o sobre el origen de los datos, puedes contactarme:</p>-->
-<!--        <p><strong>Correo:</strong> <a href="mailto:"></a></p>-->
-
         <div class="highlight-box" style="margin-top: 2rem;">
             <p><strong>Ruteando®</strong> es una marca registrada ante el IMPI (Instituto Mexicano de la Propiedad Industrial).</p>
         </div>
     </div>
 
+    <!-- Content EN -->
+    <div class="content lang-content" id="content-en">
+        <h1>Privacy & Data</h1>
+        <p class="subtitle">Last updated: December 2025</p>
+
+        <h2>🔒 Privacy Policy</h2>
+
+        <p>Ruteando® respects your privacy. This app was created to help people in Tepic get around better, NOT to collect your data.</p>
+
+        <h3>What data do I collect?</h3>
+        <ul>
+            <li><strong>Location:</strong> Only when you use the app and only to show you nearby routes. I don't store your location history.</li>
+            <li><strong>Email:</strong> Only if you sign up to receive the launch notification. It's to let you know when it's ready, NOTHING ELSE.</li>
+            <li><strong>Note:</strong> When you download the app, you'll notice it doesn't ask for any personal information.</li>
+        </ul>
+
+        <h3>What I DON'T do with your data</h3>
+        <ul>
+            <li>❌ I don't sell your information to third parties</li>
+            <li>❌ I don't share your location with anyone</li>
+            <li>❌ I don't send you spam or advertising</li>
+        </ul>
+
+        <div class="highlight-box green">
+            <p><strong>In short:</strong> Your information stays between you and the app. I have no interest in your data, only in helping you get where you're going.</p>
+        </div>
+
+        <h2>📊 Route Data Sources</h2>
+
+        <p>The public transit route data used in Ruteando® comes from public and open sources:</p>
+
+        <h3>Primary Source</h3>
+        <div class="highlight-box">
+            <p><span class="source-badge">MapHub</span></p>
+            <p style="margin-top: 0.5rem;"><strong>URL:</strong> <a href="https://maphub.net/MovilidadNayarit/Transporte-Publico-Tepic" target="_blank">maphub.net/MovilidadNayarit/Transporte-Publico-Tepic</a></p>
+            <p><strong>Author:</strong> MovilidadNayarit (official account of the Nayarit State Mobility Department)</p>
+            <p><strong>Data type:</strong> Tepic public transit routes in geospatial format</p>
+        </div>
+
+        <h3>Why is using this data legitimate?</h3>
+        <ul>
+            <li><strong>Voluntary publication:</strong> The Nayarit Mobility Department published this data on a free, public access platform.</li>
+            <li><strong>Public information:</strong> Public transit routes are information of public interest that should be accessible to citizens.</li>
+            <li><strong>Non-profit:</strong> Ruteando® is a free app, I make no profit from this data.</li>
+            <li><strong>Public benefit:</strong> The sole purpose is to make it easier for Tepic citizens to get around.</li>
+        </ul>
+
+        <h3>Other Data Used</h3>
+        <ul>
+            <li><strong>OpenStreetMap:</strong> Base cartographic data (streets, points of interest) under ODbL license</li>
+            <li><strong>CartoDB Voyager:</strong> Map visual style (free with attribution)</li>
+            <li><strong>Nominatim:</strong> Place name search (OpenStreetMap service)</li>
+        </ul>
+
+        <h2>⚖️ Legal Basis</h2>
+
+        <p>The use of this data is supported by:</p>
+        <ul>
+            <li><strong>General Law of Transparency and Access to Public Information (Art. 3):</strong> All information held by any authority is public.</li>
+            <li><strong>Open Data Principle:</strong> The Mexican Government promotes the opening of government data for reuse by citizens.</li>
+        </ul>
+
+        <div class="highlight-box green">
+            <p><strong>Important note:</strong> The data was publicly available on the internet. I just used it to build the app that governments haven't been able to develop for years.</p>
+        </div>
+
+        <h2>📝 Commitment</h2>
+
+        <p>As the developer of Ruteando®, I commit to:</p>
+        <ul>
+            <li>✅ Keep the app free and accessible (as long as I can cover the costs mentioned on the main page)</li>
+            <li>✅ Update the data when the official source updates it or when I find legitimate data that can be used</li>
+            <li>✅ Not use the data for purposes other than public benefit</li>
+            <li>✅ Always respect your privacy</li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p><strong>Ruteando®</strong> is a registered trademark with IMPI (Mexican Institute of Industrial Property).</p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
-        <p class="footer-text">
+        <p class="footer-text" id="footer-text">
             Hecho con el <span class="footer-heart">❤️</span> por un Kora en Tepic, Nayarit
         </p>
         <p class="footer-text" style="opacity: 0.6; font-size: 0.85rem; margin-top: 0.3rem;">
             PAPS
         </p>
-        <p class="footer-text" style="margin-top: 1rem; opacity: 0.5;">
+        <p class="footer-text" style="margin-top: 1rem; opacity: 0.5;" id="footer-rights">
             © 2025 Ruteando®. Todos los derechos reservados.
         </p>
     </footer>
+
+    <script>
+        // Idioma actual
+        let currentLang = localStorage.getItem('ruteando_lang') || 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('ruteando_lang', lang);
+
+            // Actualizar botones activos
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Mostrar contenido correcto
+            document.getElementById('content-es').classList.toggle('active', lang === 'es');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
+
+            // Actualizar link de regreso
+            document.getElementById('back-link').textContent = lang === 'en' ? '← Back to home' : '← Volver al inicio';
+
+            // Actualizar footer
+            document.getElementById('footer-text').innerHTML = lang === 'en'
+                ? 'Made with <span class="footer-heart">❤️</span> by a Kora in Tepic, Nayarit'
+                : 'Hecho con el <span class="footer-heart">❤️</span> por un Kora en Tepic, Nayarit';
+            document.getElementById('footer-rights').textContent = lang === 'en'
+                ? '© 2025 Ruteando®. All rights reserved.'
+                : '© 2025 Ruteando®. Todos los derechos reservados.';
+
+            // Actualizar lang del HTML
+            document.documentElement.lang = lang;
+        }
+
+        // Configurar event listeners para botones de idioma
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Aplicar idioma guardado
+        setLanguage(currentLang);
+    </script>
 </body>
 </html>
